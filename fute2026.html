@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fute 2026 | Olombaka Entretenimento</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="imagens/logo.jpg">
+</head>
+<body>
+
+<!-- Barra de navegação -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Olombaka">
+    </a>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>   
+    <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+
+  <ul class="mobile-menu">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>   
+    <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Conteúdo do Evento -->
+<main>
+  <section id="fute2026">
+    <h1>🏆 Fute 2026 – Torneio de Playstation</h1>
+    <p>O maior torneio presencial de futebol virtual em Luanda, realizado no <strong>Camama Tropical</strong>. 
+    Uma semana inteira de competição com 32 equipas em formato eliminatório simples.</p>
+
+    <h2>📅 Estrutura do Torneio</h2>
+    <ul>
+      <li><strong>Dia 1 – Oitavas de Final:</strong> 32 → 16 equipas</li>
+      <li><strong>Dia 2 – Quartas de Final:</strong> 16 → 8 equipas</li>
+      <li><strong>Dia 3 – Semifinais:</strong> 8 → 4 equipas</li>
+      <li><strong>Dia 4 – Meias-Finais + 3º lugar:</strong> 4 → 2 finalistas</li>
+      <li><strong>Dia 5 – Grande Final:</strong> Campeão e cerimónia de encerramento</li>
+    </ul>
+
+    <h2>💰 Inscrição e Prémios</h2>
+    <p><strong>Inscrição por equipa:</strong> 15.000 KZ</p>
+    <p><strong>Prémios:</strong></p>
+    <ul>
+      <li>🥇 1º lugar: 300.000 KZ</li>
+      <li>🥈 2º lugar: 120.000 KZ</li>
+      <li>🥉 3º lugar: 60.000 KZ</li>
+    </ul>
+
+    <h2>🎟️ Entrada do Público</h2>
+    <ul>
+      <li>Fases normais: 2.500 KZ</li>
+      <li>Final: 5.000 KZ</li>
+    </ul>
+
+    <h2>⏰ Horários</h2>
+    <p>Abertura do espaço: 08h00 | Início dos jogos: 09h00 | Encerramento: 18h00</p>
+
+    <h2>📸 Galeria</h2>
+    <div class="galeria">
+      <img src="imagens/fute2026-1.jpg" alt="Oitavas de Final">
+      <img src="imagens/fute2026-2.jpg" alt="Quartas de Final">
+      <img src="imagens/fute2026-3.jpg" alt="Grande Final">
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="">
+  <div class="caption"></div>
+</div>
+
+<script>
+// Menu Mobile
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+menuToggle.addEventListener('click', () => {
+  mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+});
+
+// Fecha menu ao clicar em link
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.style.display = 'none';
+  });
+});
+
+// Lightbox
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.querySelector('.lightbox-img');
+const caption = document.querySelector('.caption');
+const closeBtn = document.querySelector('.close');
+
+document.querySelectorAll('.galeria img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightbox.style.display = 'flex';
+    lightboxImg.src = img.src;
+    caption.textContent = img.alt;
+  });
+});
+
+closeBtn.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+});
+
+lightbox.addEventListener('click', (e) => {
+  if (e.target === lightbox) {
+    lightbox.style.display = 'none';
+  }
+});
+</script>
+
+</body>
+</html>
