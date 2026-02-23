@@ -6,25 +6,18 @@ html, body {
   overflow-x: hidden;
   width: 100%;
   font-family: 'Poppins', sans-serif;
-  background-color: #111111; /* fundo preto elegante */
+  background-color: #111111;
   color: #FFFFFF;
-  padding-top: 80px; /* igual ao pedidos.html */
+  padding-top: 80px;
 }
 
-/* Header */
-.header-img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Navbar fixa em todas as versões */
+/* Navbar */
 .navbar {
-  background-color: #FFD700; /* dourado institucional */
+  background-color: #FFD700;
   display: flex;
-  justify-content: space-between; /* logo à esquerda, botão opções à direita */
+  justify-content: space-between;
   align-items: center;
-  padding: 10px 15px; /* igual ao pedidos.html */
+  padding: 10px 15px;
   position: fixed;
   top: 0;
   left: 0;
@@ -33,16 +26,15 @@ html, body {
 }
 
 .navbar .logo img {
-  height: 60px; /* igual ao pedidos.html */
+  height: 60px;
 }
 
-/* Links desktop */
 .nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
   margin-left: auto;
-  padding-right: 20px; /* igual ao pedidos.html */
+  padding-right: 20px;
 }
 
 .nav-links li a {
@@ -53,7 +45,7 @@ html, body {
 }
 
 .nav-links li a:hover {
-  color: #FF4C4C; /* coral jovem */
+  color: #FF4C4C;
 }
 
 /* Botão Opções (mobile) */
@@ -78,22 +70,20 @@ html, body {
   background-color: #111111;
   padding: 15px;
   position: absolute;
-  top: -100%; /* escondido fora da tela */
+  top: -100%;
   left: 0;
   width: 100%;
   z-index: 999;
   opacity: 0;
-  pointer-events: none; /* impede cliques quando escondido */
+  pointer-events: none;
   transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
-
 .mobile-menu.active {
-  top: 65px; /* aparece logo abaixo da navbar */
+  top: 65px;
   opacity: 1;
-  pointer-events: auto; /* permite cliques quando visível */
+  pointer-events: auto;
 }
-
 
 .mobile-menu li a {
   display: block;
@@ -118,38 +108,41 @@ html, body {
   .menu-toggle { display: block; }
 }
 
-/* Main mobile first */
+/* Produtos */
 main {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   gap: 20px;
-  padding: 15px;
+  padding: 30px;
+  justify-content: center;
 }
 
-/* Imagens no main ajustadas 1:1 sem cortes */
-main img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;       /* mostra a imagem inteira sem cortes */
-  background-color: #000;    /* fundo preto elegante */
-  border-radius: 10px;
-  display: block;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover glamouroso nas imagens */
-main img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 20px rgba(255, 215, 0, 0.6);
-}
-
-/* Produtos (cards) */
 .product {
   background-color: #1a1a1a;
   border-radius: 10px;
   padding: 15px;
   text-align: center;
+  width: 250px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #000;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.product img:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
 }
 
 .product h3 {
@@ -165,53 +158,92 @@ main img:hover {
   margin-bottom: 10px;
 }
 
-/* Botões glamourosos */
-button, .btn-eventos {
+.product button {
   background: linear-gradient(135deg, #FFD700, #FF4C4C);
-  color: #111111;
+  color: #111;
   border: none;
-  padding: 12px 25px;
-  border-radius: 8px;
+  padding: 10px 20px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
   font-weight: bold;
-  box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
   transition: all 0.3s ease;
 }
 
-button:hover, .btn-eventos:hover {
+.product button:hover {
   background: linear-gradient(135deg, #FF4C4C, #007BFF);
   color: #fff;
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(255, 76, 76, 0.6);
 }
 
-/* Galeria */
-.galeria {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  margin-top: 20px;
-  justify-content: center; /* centraliza os itens */
+/* Botão flutuante de filtro (mobile) */
+@media (max-width: 768px) {
+  .filter-toggle {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(255,215,0,0.4);
+    z-index: 1100;
+    display: block;
+  }
+
+  .filter-sidebar {
+    position: fixed;
+    top: 0;
+    right: -300px;
+    width: 300px;
+    height: 100%;
+    background: #1a1a1a;
+    color: #fff;
+    padding: 20px;
+    box-shadow: -4px 0 12px rgba(0,0,0,0.5);
+    transition: right 0.4s ease-in-out;
+    z-index: 1200;
+  }
+
+  .filter-sidebar.active {
+    right: 0;
+  }
 }
 
-.galeria img {
-  flex: 1 1 calc(33% - 20px); /* padrão: 3 por linha */
-  max-width: 300px;           /* limite máximo por imagem */
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  background-color: #000;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* Dropdown de filtro (desktop) */
+@media (min-width: 769px) {
+  .filter-toggle,
+  .filter-sidebar {
+    display: none;
+  }
 
-/* Quando só cabe 1 por linha (mobile) */
-@media (max-width: 600px) {
-  .galeria img {
-    flex: 1 1 auto;
-    max-width: 300px;   /* mantém tamanho reservado */
-    margin: 0 auto;     /* centraliza a imagem */
+  .filter-dropdown {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .filter-dropdown select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111; /* texto visível */
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
+  }
+
+  .filter-dropdown select option {
+    background: #fff;   /* fundo branco */
+    color: #111;        /* texto preto */
+    font-weight: normal;
+  }
+
+  .filter-dropdown select:hover {
+    background: linear-gradient(135deg,#FF4C4C,#007BFF);
+    color: #fff;
   }
 }
 
@@ -233,64 +265,4 @@ footer a {
 
 footer a:hover {
   color: #FF4C4C;
-}
-
-/* Lightbox */
-.lightbox {
-  display: none;
-  position: fixed;
-  z-index: 2000;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.9);
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.lightbox-img {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255,215,0,0.6);
-}
-
-.caption {
-  margin-top: 15px;
-  color: #FFD700;
-  font-size: 18px;
-  text-align: center;
-}
-
-.close {
-  position: absolute;
-  top: 20px;
-  right: 35px;
-  color: #FFD700;
-  font-size: 40px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-/* Responsividade */
-@media (min-width: 600px) {
-  main {
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .product {
-    flex: 1 1 calc(50% - 40px);
-    max-width: 300px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .product {
-    flex: 1 1 calc(25% - 40px);
-    max-width: 280px;
-  }
 }
