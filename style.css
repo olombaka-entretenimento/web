@@ -67,29 +67,38 @@ html, body {
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 3px 8px rgba(255, 215, 0, 0.4);
+  z-index: 1001;
 }
 
-/* Menu mobile */
+/* Menu mobile com slide + fade */
 .mobile-menu {
-  display: none;
+  display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: #111111;
   padding: 15px;
   position: absolute;
-  top: 65px; /* abaixo da navbar */
+  top: -100%; /* escondido fora da tela */
   left: 0;
   width: 100%;
   z-index: 999;
+  opacity: 0;
+  transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.mobile-menu.active {
+  top: 65px; /* aparece logo abaixo da navbar */
+  opacity: 1;
 }
 
 .mobile-menu li a {
   display: block;
-  padding: 10px;
+  padding: 12px;
   background: linear-gradient(135deg, #FFD700, #FF4C4C);
   color: #111111;
   border-radius: 6px;
   text-align: center;
+  font-weight: bold;
   box-shadow: 0 3px 8px rgba(255, 215, 0, 0.4);
 }
 
@@ -101,12 +110,8 @@ html, body {
 
 /* Mobile first */
 @media (max-width: 600px) {
-  .nav-links {
-    display: none; /* esconde links desktop */
-  }
-  .menu-toggle {
-    display: block; /* mostra botão Opções */
-  }
+  .nav-links { display: none; }
+  .menu-toggle { display: block; }
 }
 
 /* Main mobile first */
