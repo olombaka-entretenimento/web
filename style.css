@@ -83,13 +83,17 @@ html, body {
   width: 100%;
   z-index: 999;
   opacity: 0;
+  pointer-events: none; /* impede cliques quando escondido */
   transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
+
 
 .mobile-menu.active {
   top: 65px; /* aparece logo abaixo da navbar */
   opacity: 1;
+  pointer-events: auto; /* permite cliques quando visível */
 }
+
 
 .mobile-menu li a {
   display: block;
