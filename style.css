@@ -249,6 +249,7 @@ main {
    Filtros (Desktop + Mobile)
 =========================== */
 @media (min-width: 769px) {
+  /* Desktop → mostra dropdown central */
   .filter-toggle,
   .filter-sidebar { display: none; }
 
@@ -281,66 +282,33 @@ main {
 }
 
 @media (max-width: 768px) {
-  .filter-toggle {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: linear-gradient(135deg,#FFD700,#FF4C4C);
-    color: #111;
-    border: none;
-    padding: 12px 20px;
-    border-radius: 50px;
-    font-weight: bold;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(255,215,0,0.4);
-    z-index: 1100;
-    display: block;
+  /* Mobile → mostra apenas dropdown central */
+  .filter-toggle,
+  .filter-sidebar { display: none; }
+
+  .filter-dropdown {
+    margin: 20px auto;
+    text-align: center;
   }
 
-  .filter-sidebar {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 300px;
-    height: 100%;
-    background: #1a1a1a;
-    color: #fff;
-    padding: 20px;
-    box-shadow: -4px 0 12px rgba(0,0,0,0.5);
-    transition: right 0.4s ease-in-out;
-    z-index: 1200;
-  }
-
-  .filter-sidebar.active {
-    right: 0;
-  }
-
-  .filter-sidebar h3 {
-    color: #FFD700;
-    margin-bottom: 15px;
-  }
-
-  .filter-sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  .filter-sidebar li {
-    margin: 10px 0;
-  }
-
-  .filter-sidebar li button {
-    width: 100%;
-    padding: 10px;
-    background: linear-gradient(135deg,#FFD700,#FF4C4C);
-    border: none;
+  .filter-dropdown select {
+    padding: 10px 15px;
     border-radius: 6px;
-    color: #111;
+    border: none;
     font-weight: bold;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111;
     cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
   }
 
-  .filter-sidebar li button:hover {
+  .filter-dropdown select option {
+    background: #fff;
+    color: #111;
+    font-weight: normal;
+  }
+
+  .filter-dropdown select:hover {
     background: linear-gradient(135deg,#FF4C4C,#007BFF);
     color: #fff;
   }
