@@ -1,5 +1,6 @@
-/* style.css - versão mobile first com glamour */
-
+/* ===========================
+   Base
+=========================== */
 html, body {
   margin: 0;
   padding: 0;
@@ -11,7 +12,9 @@ html, body {
   padding-top: 80px;
 }
 
-/* Navbar */
+/* ===========================
+   Navbar e Menu Mobile
+=========================== */
 .navbar {
   background-color: #FFD700;
   display: flex;
@@ -48,7 +51,6 @@ html, body {
   color: #FF4C4C;
 }
 
-/* Botão Opções (mobile) */
 .menu-toggle {
   display: none;
   background: linear-gradient(135deg, #FFD700, #FF4C4C);
@@ -62,7 +64,6 @@ html, body {
   z-index: 1001;
 }
 
-/* Menu mobile com slide + fade */
 .mobile-menu {
   display: flex;
   flex-direction: column;
@@ -102,13 +103,14 @@ html, body {
   transform: scale(1.05);
 }
 
-/* Mobile first */
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
 }
 
-/* Produtos */
+/* ===========================
+   Produtos (Cardápio)
+=========================== */
 main {
   display: flex;
   flex-wrap: wrap;
@@ -175,7 +177,126 @@ main {
   transform: scale(1.05);
 }
 
-/* Botão flutuante de filtro (mobile) */
+/* ===========================
+   Carrinho (Pedidos)
+=========================== */
+#carrinho {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  color: #111;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+#carrinho h2 {
+  color: #FF4C4C;
+  margin-bottom: 15px;
+}
+
+#lista-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 6px;
+  border-bottom: 1px solid #eee;
+}
+
+.item-info {
+  flex: 1;
+  font-weight: 500;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.item-actions span {
+  min-width: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.item-actions button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: linear-gradient(45deg, gold, coral);
+  color: #111;
+  font-weight: bold;
+}
+
+.item-actions button:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+#total {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.finalizar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-encomenda {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(45deg, gold, coral);
+  color: #111;
+  cursor: pointer;
+}
+
+.btn-encomenda:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* ===========================
+   Filtro (Desktop + Mobile)
+=========================== */
+@media (min-width: 769px) {
+  .filter-toggle,
+  .filter-sidebar { display: none; }
+
+  .filter-dropdown {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .filter-dropdown select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
+  }
+
+  .filter-dropdown select option {
+    background: #fff;
+    color: #111;
+    font-weight: normal;
+  }
+
+  .filter-dropdown select:hover {
+    background: linear-gradient(135deg,#FF4C4C,#007BFF);
+    color: #fff;
+  }
+}
+
 @media (max-width: 768px) {
   .filter-toggle {
     position: fixed;
@@ -210,59 +331,15 @@ main {
   .filter-sidebar.active {
     right: 0;
   }
-}
 
-/* Dropdown de filtro (desktop) */
-@media (min-width: 769px) {
-  .filter-toggle,
-  .filter-sidebar {
-    display: none;
+  .filter-sidebar h3 {
+    color: #FFD700;
+    margin-bottom: 15px;
   }
 
-  .filter-dropdown {
-    margin: 20px auto;
-    text-align: center;
+  .filter-sidebar ul {
+    list-style: none;
+    padding: 0;
   }
 
-  .filter-dropdown select {
-    padding: 10px 15px;
-    border-radius: 6px;
-    border: none;
-    font-weight: bold;
-    background: linear-gradient(135deg,#FFD700,#FF4C4C);
-    color: #111; /* texto visível */
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
-  }
-
-  .filter-dropdown select option {
-    background: #fff;   /* fundo branco */
-    color: #111;        /* texto preto */
-    font-weight: normal;
-  }
-
-  .filter-dropdown select:hover {
-    background: linear-gradient(135deg,#FF4C4C,#007BFF);
-    color: #fff;
-  }
-}
-
-/* Footer */
-footer {
-  background-color: #FFD700;
-  color: #111111;
-  text-align: center;
-  padding: 15px;
-  margin-top: 40px;
-}
-
-footer a {
-  color: #111111;
-  text-decoration: none;
-  font-weight: bold;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: #FF4C4C;
-}
+  .
