@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Olombaka - Stand Up</title>
+  <!-- Apenas o style.css atualizado -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html">
+        <img src="imagens/logo.jpg" alt="Logo Olombaka">
+      </a>
+    </div>
+
+    <button class="menu-toggle">Opções ☰</button>
+
+    <ul class="nav-links">
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+      <li><a href="filme.html">Filmes</a></li>
+	  <li><a href="teatro.html">Teatro</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+      <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+      <li><a href="https://wa.me/244976194731" target="_blank">Posso ajudar?</a></li>
+    </ul>
+
+    <!-- Menu Mobile -->
+    <ul class="mobile-menu">
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+      <li><a href="filme.html">Filmes</a></li>
+	  <li><a href="teatro.html">Teatro</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contactos.html">Contactos</a></li>
+      <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+      <li><a href="https://wa.me/244976194731" target="_blank">Posso ajudar?</a></li>
+    </ul>
+  </nav>
+
+  <!-- Conteúdo Stand Up -->
+  <main>
+    <section class="ambiente">
+      <h1 style="color:#FFD700; text-align:center;">Noites de Stand Up Comedy</h1>
+      <div class="galeria">
+        <img src="imagens/standup.jpg" alt="Stand Up Comedy">
+        <img src="imagens/teatro.jpg" alt="Teatro">
+        <img src="imagens/musicaaovivo.jpg" alt="Música ao Vivo">
+      </div>
+    </section>
+  </main>
+
+  <!-- Script Menu Mobile -->
+  <script>
+    const menuToggle = document.querySelector('.menu-toggle');
+    const mobileMenu = document.querySelector('.mobile-menu');
+
+    menuToggle.addEventListener('click', () => {
+      mobileMenu.classList.toggle('active');
+    });
+
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+      });
+    });
+  </script>
+
+</body>
+</html>
