@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Olombaka - Stand Up</title>
-  <!-- Apenas o style.css atualizado -->
-  <link rel="stylesheet" href="style.css">
+  <title>Olombaka - Humor</title>
+  <!-- Aponta para filme.css -->
+  <link rel="stylesheet" href="filme.css">
+  <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
 </head>
 <body>
 
@@ -34,7 +35,11 @@
         camama.tropical
       </a>
     </li>
-      <li><a href="https://wa.me/244976194731" target="_blank">Posso ajudar?</a></li>
+        <a href="https://wa.me/244976194731" target="_blank">
+          <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+          Posso ajudar?
+        </a>
+      </li>
     </ul>
 
     <!-- Menu Mobile -->
@@ -53,21 +58,42 @@
         camama.tropical
       </a>
     </li>
-      <li><a href="https://wa.me/244976194731" target="_blank">Posso ajudar?</a></li>
+        <a href="https://wa.me/244976194731" target="_blank">
+          <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+          Posso ajudar?
+        </a>
+      </li>
     </ul>
   </nav>
 
-  <!-- Conteúdo Stand Up -->
+  <!-- Conteúdo Humor -->
   <main>
     <section class="ambiente">
-      <h1 style="color:#FFD700; text-align:center;">Noites de Stand Up Comedy</h1>
+      <h1 style="color:#FFD700; text-align:center;">Noites de Humor e Stand Up</h1>
       <div class="galeria">
         <img src="imagens/standup.jpg" alt="Stand Up Comedy">
-        <img src="imagens/teatro.jpg" alt="Teatro">
-        <img src="imagens/musicaaovivo.jpg" alt="Música ao Vivo">
+        <img src="imagens/humor.jpg" alt="Show de Humor">
+        <img src="imagens/teatro.jpg" alt="Peça de Teatro Cómica">
       </div>
     </section>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <section id="contactos">
+      <h2>Contactos</h2>
+      <p>📍 Camama Tropical, Rua Direita do Camama</p>
+      <p>📞 WhatsApp: +244 976 194 731 - 📧 Email: geral@olombaka.co.ao</p>
+    </section>
+    <p>
+      <a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a> |  
+      <a href="https://www.facebook.com/olombakaentretenimento" target="_blank">Facebook</a>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </p>
+  </footer>
 
   <!-- Script Menu Mobile -->
   <script>
@@ -82,6 +108,14 @@
       link.addEventListener('click', () => {
         mobileMenu.classList.remove('active');
       });
+    });
+
+    document.addEventListener('click', (e) => {
+      if (mobileMenu.classList.contains('active') &&
+          !mobileMenu.contains(e.target) &&
+          e.target !== menuToggle) {
+        mobileMenu.classList.remove('active');
+      }
     });
   </script>
 
