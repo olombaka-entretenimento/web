@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fute 2026 | Olombaka Entretenimento</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Fute 2026 | Camama Tropical</title>
+  <link rel="stylesheet" href="mestre.css"> <!-- CSS padrão -->
   <link rel="icon" type="image/png" href="imagens/logo.jpg">
 </head>
 <body>
 
-<!-- Barra de navegação -->
+<!-- Navbar Pilot -->
 <nav class="navbar">
   <div class="logo">
     <a href="index.html">
       <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
     </a>
   </div>
-
-  <!-- Botão mobile -->
   <button class="menu-toggle">☰</button>
-
-  <!-- Links desktop -->
   <ul class="nav-links">
     <li><a href="cardapio.html">Cardápio</a></li>
     <li><a href="pedidos.html">Pedidos</a></li>
@@ -31,14 +27,14 @@
     <li><a href="contactos.html">Contactos</a></li>
     <li>
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         camama.tropical
       </a>
     </li>
     <li>
       <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         Posso ajudar?
       </a>
@@ -54,29 +50,17 @@
     <li><a href="stand.html">Show de Humor</a></li>
     <li><a href="eventos.html">Eventos</a></li>
     <li><a href="contactos.html">Contactos</a></li>
-    <li>
-      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
-             style="height:20px;vertical-align:middle;margin-right:6px;">
-        camama.tropical
-      </a>
-    </li>
-    <li>
-      <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
-             style="height:20px;vertical-align:middle;margin-right:6px;">
-        Posso ajudar?
-      </a>
-    </li>
   </ul>
 </nav>
 
 <!-- Conteúdo do Evento -->
 <main>
-  <section id="fute2026">
-    <h1>🏆 Fute 2026 – Torneio de Playstation</h1>
-    <p>O maior torneio presencial de futebol virtual em Luanda, realizado no <strong>Camama Tropical</strong>. 
-    Uma semana inteira de competição com 32 equipas em formato eliminatório simples.</p>
+  <section id="fute2026" class="ambiente">
+    <h1 style="text-align:center; color:#FFD700;">🏆 Fute 2026 – Torneio de Playstation</h1>
+    <p style="text-align:center;">
+      O maior torneio presencial de futebol virtual em Luanda, realizado no <strong>Camama Tropical</strong>.  
+      Uma semana inteira de competição com 32 equipas em formato eliminatório simples.
+    </p>
 
     <h2>📅 Estrutura do Torneio</h2>
     <ul>
@@ -89,7 +73,6 @@
 
     <h2>💰 Inscrição e Prémios</h2>
     <p><strong>Inscrição por equipa:</strong> 15.000 KZ</p>
-    <p><strong>Prémios:</strong></p>
     <ul>
       <li>🥇 1º lugar: 300.000 KZ</li>
       <li>🥈 2º lugar: 120.000 KZ</li>
@@ -115,28 +98,36 @@
 </main>
 
 <!-- Lightbox -->
-<div id="lightbox" class="lightbox">
+<div id="lightbox" class="modal">
   <span class="close">&times;</span>
-  <img class="lightbox-img" src="" alt="">
-  <div class="caption"></div>
+  <div class="modal-content">
+    <img class="lightbox-img" src="" alt="">
+    <div class="caption"></div>
+  </div>
 </div>
 
 <script>
-// Menu Mobile
+// ===== Menu Mobile =====
 const menuToggle = document.querySelector('.menu-toggle');
 const mobileMenu = document.querySelector('.mobile-menu');
-menuToggle.addEventListener('click', () => {
-  mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  mobileMenu.classList.toggle('active');
 });
-
-// Fecha menu ao clicar em link
 document.querySelectorAll('.mobile-menu a').forEach(link => {
   link.addEventListener('click', () => {
-    mobileMenu.style.display = 'none';
+    mobileMenu.classList.remove('active');
   });
 });
+document.addEventListener('click', (e) => {
+  if (mobileMenu.classList.contains('active') &&
+      !mobileMenu.contains(e.target) &&
+      e.target !== menuToggle) {
+    mobileMenu.classList.remove('active');
+  }
+});
 
-// Lightbox
+// ===== Lightbox =====
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.querySelector('.lightbox-img');
 const caption = document.querySelector('.caption');

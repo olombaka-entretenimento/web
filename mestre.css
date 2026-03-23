@@ -73,7 +73,7 @@ html, body {
   flex-direction: column;
   background-color: #FFD700;
   position: absolute;
-  top: 70px; /* abaixo da navbar */
+  top: 70px;
   right: 0;
   width: 220px;
   padding: 10px;
@@ -102,7 +102,7 @@ html, body {
 }
 
 /* ===========================
-   Galeria com brilho (Index, Eventos, Fute 2026)
+   Galeria
 =========================== */
 .ambiente {
   padding: 30px;
@@ -110,16 +110,16 @@ html, body {
 
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* imagens menores e responsivas */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
   gap: 15px;
   justify-content: center;
 }
 
 .galeria img {
   width: 100%;
-  aspect-ratio: 1 / 1;   /* mantém proporção quadrada */
-  object-fit: contain;   /* mostra a imagem inteira sem cortes */
-  background-color: #000; /* fundo preto para preencher margens */
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  background-color: #000;
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
@@ -130,14 +130,13 @@ html, body {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
 }
-/* Versão desktop: imagens maiores */
+
 @media (min-width: 1024px) {
   .galeria {
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* aumenta tamanho mínimo */
-    gap: 20px; /* mais espaço entre imagens */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
   }
 }
-
 
 /* ===========================
    Grid de Filmes
@@ -147,7 +146,7 @@ html, body {
   padding: 20px;
   margin: 0;
   display: flex;
-  flex-direction: column; /* mobile first */
+  flex-direction: column;
   gap: 20px;
 }
 
@@ -189,14 +188,14 @@ html, body {
 @media (min-width: 768px) {
   .grid-filmes {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
   }
 }
 
 @media (min-width: 1200px) {
   .grid-filmes {
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -223,7 +222,7 @@ html, body {
   width: 90%; max-width: 800px;
   color: #fff;
   display: flex;
-  flex-direction: column; /* mobile first */
+  flex-direction: column;
   gap: 20px;
   max-height: 90vh;
   overflow-y: auto;
@@ -281,4 +280,140 @@ html, body {
   background: linear-gradient(135deg, #FF4C4C, #007BFF);
   color: #fff;
   transform: scale(1.05);
+}
+
+/* ===========================
+   Carrinho de Pedidos
+=========================== */
+#carrinho {
+  padding: 30px;
+  max-width: 800px;
+  margin: 0 auto;
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+}
+
+#carrinho h2 {
+  color: #FFD700;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#lista-carrinho {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#lista-carrinho li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #222;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+}
+
+.item-info {
+  font-weight: bold;
+  color: #fff;
+}
+
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-actions button {
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+
+/* Botões - e + */
+.item-actions button:nth-child(1),
+.item-actions button:nth-child(3) {
+  background: #FFD700;
+  color: #111;
+}
+
+.item-actions button:nth-child(1):hover,
+.item-actions button:nth-child(3):hover {
+  background: #FF4C4C;
+  color: #fff;
+}
+
+/* Botão remover (x) */
+.item-actions button:last-child {
+  background: #FF4C4C;
+  color: #fff;
+}
+
+.item-actions button:last-child:hover {
+  background: #cc0000;
+}
+
+/* Total */
+#total {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #FFD700;
+  text-align: right;
+  margin-top: 20px;
+}
+
+/* Botão Finalizar Encomenda */
+.finalizar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-encomenda, .btn-saiba {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #111;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-encomenda:hover {
+  background: linear-gradient(135deg, #FF4C4C, #007BFF);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+
+/* ===========================
+   Links apenas em Contactos
+=========================== */
+#contactos a {
+  color: #fff;              /* cor inicial branca */
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  text-align: center;       /* centraliza o texto dentro do link */
+  width: 100%;              /* ocupa toda a largura para centralizar */
+}
+
+#contactos a:hover {
+  color: #FF4C4C;           /* vermelho ao passar o mouse */
+}
+
+#contactos a:visited {
+  color: #fff;              /* mantém branco mesmo após clique */
+}
+
+/* Centralizar os parágrafos que contêm links */
+#contactos p {
+  text-align: center;
 }

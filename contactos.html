@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contactos | Olombaka Entretenimento</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Contactos | Camama Tropical</title>
+  <link rel="stylesheet" href="mestre.css"> <!-- CSS padrão -->
   <link rel="icon" type="image/png" href="imagens/logo.jpg">
 </head>
 <body>
 
-<!-- Barra de navegação -->
+<!-- Navbar Pilot -->
 <nav class="navbar">
   <div class="logo">
     <a href="index.html">
       <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
     </a>
   </div>
-
-  <!-- Botão mobile -->
   <button class="menu-toggle">☰</button>
-
-  <!-- Links desktop -->
   <ul class="nav-links">
     <li><a href="cardapio.html">Cardápio</a></li>
     <li><a href="pedidos.html">Pedidos</a></li>
@@ -31,14 +27,14 @@
     <li><a href="contactos.html">Contactos</a></li>
     <li>
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         camama.tropical
       </a>
     </li>
     <li>
       <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         Posso ajudar?
       </a>
@@ -56,26 +52,27 @@
     <li><a href="contactos.html">Contactos</a></li>
     <li>
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         camama.tropical
       </a>
     </li>
     <li>
       <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         Posso ajudar?
       </a>
     </li>
   </ul>
 </nav>
+
 <!-- Conteúdo Contactos -->
 <main>
-  <section id="contactos">
-    <h2>Contactos</h2>
+  <section id="contactos" class="ambiente">
+    <h2 style="text-align:center; color:#FFD700;">Contactos</h2>
     <p>
-      📍 Camama Tropical, Rua Direita do Camama — 
+      📍 Camama Tropical, Rua Direita do Camama —  
       <a href="https://www.google.com/maps?q=-8.932283,13.263858" target="_blank">
         Ver no Google Maps
       </a>
@@ -92,9 +89,9 @@
     </p>
 
     <!-- QR Code Instagram -->
-    <p>
+    <p style="text-align:center;">
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram.jpg" alt="Instagram Camama Tropical" 
+        <img src="imagens/instagram.jpg" alt="Instagram Camama Tropical"  
              style="height:150px; border-radius:8px; margin-top:15px;">
       </a>
     </p>
@@ -106,19 +103,17 @@
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
 
-  // Alterna a classe active
-  menuToggle.addEventListener('click', () => {
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     mobileMenu.classList.toggle('active');
   });
 
-  // Fecha menu ao clicar em link
   document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
     });
   });
 
-  // Fecha menu ao clicar fora
   document.addEventListener('click', (e) => {
     if (mobileMenu.classList.contains('active') &&
         !mobileMenu.contains(e.target) &&
