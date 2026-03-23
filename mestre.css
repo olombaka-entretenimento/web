@@ -102,7 +102,7 @@ html, body {
 }
 
 /* ===========================
-   Galeria com brilho (Index, Eventos, Fute 2026)
+   Galeria (Index, Eventos, Fute 2026)
 =========================== */
 .ambiente {
   padding: 30px;
@@ -110,15 +110,15 @@ html, body {
 
 .galeria {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* imagens menores */
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* imagens menores e responsivas */
   gap: 15px;
   justify-content: center;
 }
 
 .galeria img {
-  width: 100%;
-  aspect-ratio: 1 / 1;   /* mantém proporção quadrada */
-  object-fit: cover;     /* preenche o espaço sem distorcer */
+  width: 100%;              /* ocupa toda a largura da célula */
+  aspect-ratio: 1 / 1;       /* mantém proporção quadrada */
+  object-fit: cover;         /* preenche o espaço sem distorcer */
   background-color: #000;
   border-radius: 10px;
   cursor: pointer;
