@@ -17,6 +17,95 @@
     </a>
   </div>
 
+  <button class="menu-toggle">☰ Opções</button>
+
+  <ul class="nav-links">
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+	  <li><a href="filme.html">Filmes</a></li>
+	  <li><a href="teatro.html">Teatro</a></li>
+	  <li><a href="stand.html">Show de Humor</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contactos.html">Contactos</a></li>   
+      <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+      <li>
+        <a href="https://wa.me/244976194731" target="_blank">
+          <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+          Posso ajudar?
+        </a>
+    </li>
+  </ul>
+
+  <ul class="mobile-menu">
+      <li><a href="cardapio.html">Cardápio</a></li>
+      <li><a href="pedidos.html">Pedidos</a></li>
+	  <li><a href="filme.html">Filmes</a></li>
+	  <li><a href="teatro.html">Teatro</a></li>
+	  <li><a href="stand.html">Show de Humor</a></li>
+      <li><a href="eventos.html">Eventos</a></li>
+      <li><a href="contactos.html">Contactos</a></li>  
+      <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+      <li>
+        <a href="https://wa.me/244976194731" target="_blank">
+          <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+          Posso ajudar?
+        </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- Conteúdo Contactos -->
+  <main>
+    <section id="contactos">
+      <h2>Contactos</h2>
+      <p>📍 Camama Tropical, Rua Direita do Camama</p>
+      <p>📞 WhatsApp: +244 976 194 731</p>
+      <p>📧 Email: geral@olombaka.co.ao</p>
+    </section>
+  </main>
+
+  <!-- Script Menu Mobile -->
+  <script>
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.style.display = mobileMenu.style.display === 'flex' ? 'none' : 'flex';
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.style.display = 'none';
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.style.display === 'flex' && !mobileMenu.contains(e.target) && e.target !== menuToggle) {
+      mobileMenu.style.display = 'none';
+    }
+  });
+  </script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactos | Olombaka Entretenimento</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="imagens/logo.jpg">
+</head>
+<body>
+
+ <!-- Barra de navegação -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Olombaka">
+    </a>
+  </div>
+
   <!-- Botão Opções (mobile) -->
   <button class="menu-toggle">☰</button>
 
