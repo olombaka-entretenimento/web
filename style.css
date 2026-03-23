@@ -13,7 +13,7 @@ html, body {
 }
 
 /* ===========================
-   Navbar
+   Navbar e Menu Mobile
 =========================== */
 .navbar {
   background-color: #FFD700;
@@ -22,7 +22,8 @@ html, body {
   align-items: center;
   padding: 10px 15px;
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
 }
@@ -63,49 +64,52 @@ html, body {
   z-index: 1001;
 }
 
+.mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #111111;
+  padding: 15px;
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+  opacity: 0;
+  pointer-events: none;
+  transition: top 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+.mobile-menu.active {
+  top: 65px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-menu li a {
+  display: block;
+  padding: 12px;
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #111111;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 3px 8px rgba(255, 215, 0, 0.4);
+}
+
+.mobile-menu li a:hover {
+  background: linear-gradient(135deg, #FF4C4C, #007BFF);
+  color: #fff;
+  transform: scale(1.05);
+}
+
 @media (max-width: 600px) {
   .nav-links { display: none; }
   .menu-toggle { display: block; }
 }
 
 /* ===========================
-   Menu Mobile (novo estilo)
-=========================== */
-.mobile-menu {
-  display: none;               /* escondido por padrão */
-  flex-direction: column;
-  background-color: #FFD700;   /* fundo dourado */
-  position: absolute;
-  top: 70px;                   /* abaixo da navbar */
-  right: 0;                    /* alinhado à direita */
-  width: 220px;                /* largura fixa */
-  padding: 10px;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.4);
-  z-index: 2000;
-}
-
-.mobile-menu li {
-  list-style: none;
-  margin: 10px 0;
-}
-
-.mobile-menu li a {
-  text-decoration: none;
-  color: #111;
-  font-weight: bold;
-}
-
-.mobile-menu li a:hover {
-  color: #FF4C4C;
-}
-
-.mobile-menu.active {
-  display: flex;               /* só aparece quando ativo */
-}
-
-/* ===========================
-   Galeria
+   Galeria (Index, Eventos, Fute 2026)
 =========================== */
 .ambiente {
   padding: 30px;
@@ -120,9 +124,9 @@ html, body {
 
 .galeria img {
   width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: contain;
-  background-color: #000;
+  aspect-ratio: 1 / 1;       /* mantém proporção quadrada */
+  object-fit: contain;       /* não corta a imagem */
+  background-color: #000;    /* fundo elegante */
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -135,126 +139,264 @@ html, body {
 }
 
 /* ===========================
-   Grid de Filmes
+   Lightbox (Index + Fute 2026)
 =========================== */
-.grid-filmes {
-  list-style: none;
-  padding: 20px;
-  margin: 0;
-  display: flex;
-  flex-direction: column; /* mobile first */
-  gap: 20px;
-}
-
-.grid-filmes li {
-  background: #1a1a1a;
-  border-radius: 8px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
-  overflow: hidden;
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-
-.grid-filmes li:hover {
-  transform: scale(1.02);
-}
-
-.grid-filmes img {
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100%;
+  background: rgba(0,0,0,0.9);
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-.grid-filmes .info {
-  padding: 10px;
-  text-align: left;
+.lightbox-img {
+  max-width: 90%;
+  max-height: 80%;
+  border-radius: 10px;
 }
 
-.grid-filmes .info h3 {
-  margin: 0 0 5px;
+.caption {
+  margin-top: 15px;
+  color: #FFD700;
+  font-weight: bold;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #FFD700;
+  cursor: pointer;
+}
+
+/* ===========================
+   Cardápio (Produtos + Filtros)
+=========================== */
+main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 30px;
+  justify-content: center;
+}
+
+.product {
+  background-color: #1a1a1a;
+  border-radius: 10px;
+  padding: 15px;
+  text-align: center;
+  width: 250px;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;       /* não corta a imagem */
+  background-color: #000;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.product img:hover {
+  filter: brightness(1.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
+}
+
+.product h3 {
+  font-size: 18px;
+  margin: 10px 0;
   color: #FFD700;
 }
 
-.grid-filmes .info p {
-  margin: 3px 0;
-  font-size: 0.9rem;
-  color: #ccc;
+.price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #FF4C4C;
+  margin-bottom: 10px;
 }
 
-@media (min-width: 768px) {
-  .grid-filmes {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
-    gap: 20px;
+.product button {
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #111;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.3s ease;
+}
+
+.product button:hover {
+  background: linear-gradient(135deg, #FF4C4C, #007BFF);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Filtros (Desktop + Mobile)
+=========================== */
+@media (min-width: 769px) {
+  /* Desktop → mostra dropdown central */
+  .filter-toggle,
+  .filter-sidebar { display: none; }
+
+  .filter-dropdown {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .filter-dropdown select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
+  }
+
+  .filter-dropdown select option {
+    background: #fff;
+    color: #111;
+    font-weight: normal;
+  }
+
+  .filter-dropdown select:hover {
+    background: linear-gradient(135deg,#FF4C4C,#007BFF);
+    color: #fff;
   }
 }
 
-@media (min-width: 1200px) {
-  .grid-filmes {
-    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+@media (max-width: 768px) {
+  /* Mobile → mostra apenas dropdown central */
+  .filter-toggle,
+  .filter-sidebar { display: none; }
+
+  .filter-dropdown {
+    margin: 20px auto;
+    text-align: center;
+  }
+
+  .filter-dropdown select {
+    padding: 10px 15px;
+    border-radius: 6px;
+    border: none;
+    font-weight: bold;
+    background: linear-gradient(135deg,#FFD700,#FF4C4C);
+    color: #111;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(255,215,0,0.4);
+  }
+
+  .filter-dropdown select option {
+    background: #fff;
+    color: #111;
+    font-weight: normal;
+  }
+
+  .filter-dropdown select:hover {
+    background: linear-gradient(135deg,#FF4C4C,#007BFF);
+    color: #fff;
   }
 }
 
 /* ===========================
-   Modal
+   Pedidos (Carrinho)
 =========================== */
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 3000;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background-color: rgba(0,0,0,0.8);
-  justify-content: center;
-  align-items: center;
-  overflow-y: auto;
-}
-
-.modal-content {
-  background: #111;
-  margin: 20px;
-  padding: 20px;
+#carrinho {
+  max-width: 600px;
+  margin: 20px auto;
+  background: #fff;
+  color: #111;
   border-radius: 8px;
-  width: 90%; max-width: 800px;
-  color: #fff;
+  padding: 20px;
+}
+
+#carrinho h2 {
+  color: #FF4C4C;
+  margin-bottom: 15px;
+}
+
+#lista-carrinho li {
   display: flex;
-  flex-direction: column; /* mobile first */
-  gap: 20px;
-  max-height: 90vh;
-  overflow-y: auto;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+  padding: 6px;
+  border-bottom: 1px solid #eee;
 }
 
-.modal-content img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 6px;
+.item-info {
+  flex: 1;
+  font-weight: 500;
 }
 
-@media (min-width: 768px) {
-  .modal-content {
-    flex-direction: row;
-    align-items: flex-start;
-    text-align: left;
-  }
-  .modal-content img {
-    max-width: 40%;
-  }
-  .modal-content .detalhes {
-    flex: 1;
-    padding-left: 20px;
-  }
+.item-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
-.close {
-  color: #FFD700;
-  float: right;
-  font-size: 1.5rem;
+.item-actions span {
+  min-width: 24px;
+  text-align: center;
   font-weight: bold;
+}
+
+.item-actions button {
+  padding: 4px 8px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: linear-gradient(45deg, gold, coral);
+  color: #111;
+  font-weight: bold;
+}
+
+.item-actions button:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+#total {
+  margin-top: 12px;
+  font-weight: bold;
+  text-align: right;
+}
+
+.finalizar-container {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-encomenda {
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(45deg, gold, coral);
+  color: #111;
   cursor: pointer;
 }
 
-.close:hover {
-  color: #FF4C4C;
+.btn-encomenda:hover {
+  background: #0077cc;
+  color: #fff;
 }
 
 /* ===========================
@@ -313,7 +455,7 @@ html, body {
 }
 
 /* ===========================
-   Fute 2026
+   Fute 2026 (Página Especial)
 =========================== */
 #fute2026 {
   padding: 30px;
@@ -354,13 +496,6 @@ html, body {
   cursor: pointer;
 }
 
-#fute2026 .galeria img {
-  width: 280px;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  cursor: pointer;
-}
-
 #fute2026 .galeria img:hover {
   filter: brightness(1.2);
   transform: scale(1.05);
@@ -368,95 +503,33 @@ html, body {
 }
 
 /* ===========================
-   Carrinho de Compras
-=========================== */
-.item-info { 
-  flex: 1; 
-  font-weight: 500; 
-}
-
-.item-actions { 
-  display: flex; 
-  align-items: center; 
-  gap: 6px; 
-}
-
-.item-actions span { 
-  min-width: 24px; 
-  text-align: center; 
-  font-weight: bold; 
-}
-
-.item-actions button { 
-  padding: 4px 8px; 
-  border: none; 
-  border-radius: 4px; 
-  cursor: pointer; 
-  background: linear-gradient(45deg, gold, coral); 
-  color: #111; 
-  font-weight: bold; 
-}
-
-.item-actions button:hover { 
-  background: #0077cc; 
-  color: #fff; 
-}
-
-#total { 
-  margin-top: 12px; 
-  font-weight: bold; 
-  text-align: right; 
-}
-
-.finalizar-container { 
-  text-align: center; 
-  margin-top: 20px; 
-}
-
-.btn-encomenda { 
-  padding: 12px 20px; 
-  font-size: 16px; 
-  font-weight: bold; 
-  border: none; 
-  border-radius: 6px; 
-  background: linear-gradient(45deg, gold, coral); 
-  color: #111; 
-  cursor: pointer; 
-}
-
-.btn-encomenda:hover { 
-  background: #0077cc; 
-  color: #fff; 
-}
-
-/* ===========================
    Footer
 =========================== */
-footer { 
-  background-color: #FFD700; 
-  color: #111111; 
-  text-align: center; 
-  padding: 20px; 
-  margin-top: 40px; 
+footer {
+  background-color: #FFD700;
+  color: #111111;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
 }
 
-footer h2 { 
-  margin-bottom: 10px; 
-  color: #FF4C4C; 
+footer h2 {
+  margin-bottom: 10px;
+  color: #FF4C4C;
 }
 
-footer p { 
-  margin: 5px 0; 
+footer p {
+  margin: 5px 0;
 }
 
-footer a { 
-  color: #111111; 
-  text-decoration: none; 
-  font-weight: bold; 
-  transition: color 0.3s; 
-  margin: 0 8px; 
+footer a {
+  color: #111111;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+  margin: 0 8px;
 }
 
-footer a:hover { 
-  color: #FF4C4C; 
+footer a:hover {
+  color: #FF4C4C;
 }
