@@ -130,6 +130,14 @@ html, body {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(255, 215, 0, 0.6);
 }
+/* Versão desktop: imagens maiores */
+@media (min-width: 1024px) {
+  .galeria {
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* aumenta tamanho mínimo */
+    gap: 20px; /* mais espaço entre imagens */
+  }
+}
+
 
 /* ===========================
    Grid de Filmes
