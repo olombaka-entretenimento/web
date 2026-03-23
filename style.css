@@ -67,9 +67,6 @@ html, body {
 /* ===========================
    Menu Mobile (novo estilo)
 =========================== */
-/* ===========================
-   Menu Mobile (novo estilo)
-=========================== */
 .mobile-menu {
   display: none;               /* escondido por padrão */
   flex-direction: column;
@@ -101,10 +98,6 @@ html, body {
 
 .mobile-menu.active {
   display: flex;               /* só aparece quando ativo */
-}
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .menu-toggle { display: block; }
 }
 
 /* ===========================
