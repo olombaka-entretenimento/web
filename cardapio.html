@@ -3,24 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio - Olombaka Entretenimento</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Cardápio - Camama Tropical</title>
+  <link rel="stylesheet" href="mestre.css"> <!-- CSS padrão -->
   <link rel="icon" type="image/png" href="imagens/logo.jpg">
 </head>
 <body>
 
-  <!-- Barra de navegação -->
-  <nav class="navbar">
+<!-- Navbar Pilot -->
+<nav class="navbar">
   <div class="logo">
     <a href="index.html">
       <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
     </a>
   </div>
-
-  <!-- Botão mobile -->
   <button class="menu-toggle">☰</button>
-
-  <!-- Links desktop -->
   <ul class="nav-links">
     <li><a href="cardapio.html">Cardápio</a></li>
     <li><a href="pedidos.html">Pedidos</a></li>
@@ -31,14 +27,14 @@
     <li><a href="contactos.html">Contactos</a></li>
     <li>
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         camama.tropical
       </a>
     </li>
     <li>
       <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         Posso ajudar?
       </a>
@@ -56,14 +52,14 @@
     <li><a href="contactos.html">Contactos</a></li>
     <li>
       <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
-        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         camama.tropical
       </a>
     </li>
     <li>
       <a href="https://wa.me/244976194731" target="_blank">
-        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
              style="height:20px;vertical-align:middle;margin-right:6px;">
         Posso ajudar?
       </a>
@@ -71,150 +67,155 @@
   </ul>
 </nav>
 
-  <!-- Dropdown de filtro (desktop) -->
-  <div class="filter-dropdown">
-    <select onchange="filtrarCategoria(this.value)">
-      <option value="todos">Todos</option>
-      <option value="entradas">Entradas</option>
-      <option value="carnes">Carnes</option>
-      <option value="Cervejas">Cervejas</option>
-      <option value="bebidas">Bebidas</option>
-      <option value="vinhos">Vinhos</option>
-      <option value="sumos">Sumos</option>
-      <option value="bebidas-quentes">Bebidas Quentes</option>
-      <option value="hamburgueres">Hambúrgueres</option>
-      <option value="peixe">Peixe</option>
-    </select>
+<!-- Dropdown de filtro (desktop) -->
+<div class="filter-dropdown">
+  <select onchange="filtrarCategoria(this.value)">
+    <option value="todos">Todos</option>
+    <option value="entradas">Entradas</option>
+    <option value="carnes">Carnes</option>
+    <option value="Cervejas">Cervejas</option>
+    <option value="bebidas">Bebidas</option>
+    <option value="vinhos">Vinhos</option>
+    <option value="sumos">Sumos</option>
+    <option value="bebidas-quentes">Bebidas Quentes</option>
+    <option value="hamburgueres">Hambúrgueres</option>
+    <option value="peixe">Peixe</option>
+  </select>
+</div>
+
+<!-- Produtos -->
+<main>
+  <div class="product" data-categoria="entradas">
+    <img src="imagens/gambas-panadas.jpg" alt="Gambas Panadas">
+    <h3>Gambas Panados</h3>
+    <p class="price">14.290,00 KZ</p>
+    <button onclick="adicionarItem('gambas-panadas','Gambas Panadas',14290)">Adicionar</button>
   </div>
-
-  <!-- Produtos -->
-  <main>
-    <div class="product" data-categoria="entradas">
-      <img src="imagens/gambas-panadas.jpg" alt="Gambas Panadas">
-      <h3>Gambas Panados</h3>
-      <p class="price">14.290,00 KZ</p>
-      <button onclick="adicionarItem('gambas-panadas','Gambas Panadas',14290)">Adicionar</button>
-    </div>
-    <div class="product" data-categoria="carnes">
-      <img src="imagens/bife-casa.jpg" alt="Bife da Casa">
-      <h3>Bife da Casa</h3>
-      <p class="price">9.500,00 KZ</p>
-      <button onclick="adicionarItem('bife-casa','Bife da Casa',9500)">Adicionar</button>
-    </div>
-    <div class="product" data-categoria="Cervejas">
-      <img src="imagens/lambreta.jpg" alt="Lambreta">
-      <h3>Lambreta</h3>
-      <p class="price">800,00 KZ</p>
-      <button onclick="adicionarItem('lambreta','Lambreta',800)">Adicionar</button>
-    </div>
-    <div class="product" data-categoria="Cervejas">
-      <img src="imagens/cucalata.jpg" alt="Cuca Lata">
-      <h3>Cuca Lata</h3>
-      <p class="price">1.500,00 KZ</p>
-      <button onclick="adicionarItem('cucalata','Cuca Lata',1500)">Adicionar</button>
-    </div>
-    <div class="product" data-categoria="bebidas">
-      <img src="imagens/cocacola.jpg" alt="Coca-Cola">
-      <h3>Coca-Cola</h3>
-      <p class="price">1.200,00 KZ</p>
-      <button onclick="adicionarItem('coca-cola','Coca-Cola',1200)">Adicionar</button>
-    </div>
-  </main>
-
-  <!-- Botão flutuante de filtro (mobile) -->
-  <button class="filter-toggle">Filtrar</button>
-
-  <!-- Barra lateral de filtros (mobile) -->
-  <div class="filter-sidebar" id="filterSidebar">
-    <h3>Filtrar Produtos</h3>
-    <ul>
-      <li><button onclick="filtrarCategoria('entradas')">Entradas</button></li>
-      <li><button onclick="filtrarCategoria('carnes')">Carnes</button></li>
-      <li><button onclick="filtrarCategoria('Cervejas')">Cervejas</button></li>
-      <li><button onclick="filtrarCategoria('bebidas')">Bebidas</button></li>
-      <li><button onclick="filtrarCategoria('vinhos')">Vinhos</button></li>
-      <li><button onclick="filtrarCategoria('sumos')">Sumos</button></li>
-      <li><button onclick="filtrarCategoria('bebidas-quentes')">Bebidas Quentes</button></li>
-      <li><button onclick="filtrarCategoria('hamburgueres')">Hambúrgueres</button></li>
-      <li><button onclick="filtrarCategoria('peixe')">Peixe</button></li>
-      <li><button onclick="filtrarCategoria('todos')">Todos</button></li>
-    </ul>
+  <div class="product" data-categoria="carnes">
+    <img src="imagens/bife-casa.jpg" alt="Bife da Casa">
+    <h3>Bife da Casa</h3>
+    <p class="price">9.500,00 KZ</p>
+    <button onclick="adicionarItem('bife-casa','Bife da Casa',9500)">Adicionar</button>
   </div>
+  <div class="product" data-categoria="Cervejas">
+    <img src="imagens/lambreta.jpg" alt="Lambreta">
+    <h3>Lambreta</h3>
+    <p class="price">800,00 KZ</p>
+    <button onclick="adicionarItem('lambreta','Lambreta',800)">Adicionar</button>
+  </div>
+  <div class="product" data-categoria="Cervejas">
+    <img src="imagens/cucalata.jpg" alt="Cuca Lata">
+    <h3>Cuca Lata</h3>
+    <p class="price">1.500,00 KZ</p>
+    <button onclick="adicionarItem('cucalata','Cuca Lata',1500)">Adicionar</button>
+  </div>
+  <div class="product" data-categoria="bebidas">
+    <img src="imagens/cocacola.jpg" alt="Coca-Cola">
+    <h3>Coca-Cola</h3>
+    <p class="price">1.200,00 KZ</p>
+    <button onclick="adicionarItem('coca-cola','Coca-Cola',1200)">Adicionar</button>
+  </div>
+</main>
 
-    <script>
-    // ===== Menu Mobile =====
-    const menuToggle = document.querySelector('.menu-toggle');
-    const mobileMenu = document.querySelector('.mobile-menu');
-    menuToggle.addEventListener('click', () => {
-      mobileMenu.classList.toggle('active');
-    });
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-      });
-    });
-    document.addEventListener('click', (e) => {
-      if (mobileMenu.classList.contains('active') &&
-          !mobileMenu.contains(e.target) &&
-          e.target !== menuToggle) {
-        mobileMenu.classList.remove('active');
-      }
-    });
+<!-- Botão flutuante de filtro (mobile) -->
+<button class="filter-toggle">Filtrar</button>
 
-    // ===== Carrinho via localStorage =====
-    function adicionarItem(id, nome, preco) {
-      let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
-      const existente = carrinho.find(item => item.id === id);
-      if (existente) {
-        existente.qtd += 1;
+<!-- Barra lateral de filtros (mobile) -->
+<div class="filter-sidebar" id="filterSidebar">
+  <h3>Filtrar Produtos</h3>
+  <ul>
+    <li><button onclick="filtrarCategoria('entradas')">Entradas</button></li>
+    <li><button onclick="filtrarCategoria('carnes')">Carnes</button></li>
+    <li><button onclick="filtrarCategoria('Cervejas')">Cervejas</button></li>
+    <li><button onclick="filtrarCategoria('bebidas')">Bebidas</button></li>
+    <li><button onclick="filtrarCategoria('vinhos')">Vinhos</button></li>
+    <li><button onclick="filtrarCategoria('sumos')">Sumos</button></li>
+    <li><button onclick="filtrarCategoria('bebidas-quentes')">Bebidas Quentes</button></li>
+    <li><button onclick="filtrarCategoria('hamburgueres')">Hambúrgueres</button></li>
+    <li><button onclick="filtrarCategoria('peixe')">Peixe</button></li>
+    <li><button onclick="filtrarCategoria('todos')">Todos</button></li>
+  </ul>
+</div>
+
+<script>
+  // ===== Menu Mobile =====
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuToggle) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+
+  // ===== Carrinho via localStorage =====
+  function adicionarItem(id, nome, preco) {
+    let carrinho = JSON.parse(localStorage.getItem('carrinho')) || [];
+    const existente = carrinho.find(item => item.id === id);
+    if (existente) {
+      existente.qtd += 1;
+    } else {
+      carrinho.push({ id, nome, preco, qtd: 1 });
+    }
+    localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
+    const btn = document.querySelector(`button[onclick*="${id}"]`);
+    if (btn) {
+      btn.textContent = "✔ Adicionado";
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = "Adicionar";
+        btn.disabled = false;
+      }, 1500);
+    }
+  }
+
+  // ===== Filtro lateral (mobile) =====
+  const filterToggle = document.querySelector('.filter-toggle');
+  const filterSidebar = document.getElementById('filterSidebar');
+
+  filterToggle.addEventListener('click', () => {
+    filterSidebar.classList.toggle('active');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (filterSidebar.classList.contains('active') &&
+        !filterSidebar.contains(e.target) &&
+        e.target !== filterToggle) {
+      filterSidebar.classList.remove('active');
+    }
+  });
+
+  // ===== Função de filtro (desktop + mobile) =====
+  function filtrarCategoria(categoria) {
+    const produtos = document.querySelectorAll('.product');
+    produtos.forEach(produto => {
+      if (categoria === 'todos' || produto.dataset.categoria.toLowerCase() === categoria.toLowerCase()) {
+        produto.style.display = 'flex';
       } else {
-        carrinho.push({ id, nome, preco, qtd: 1 });
-      }
-      localStorage.setItem('carrinho', JSON.stringify(carrinho));
-
-      const btn = document.querySelector(`button[onclick*="${id}"]`);
-      if (btn) {
-        btn.textContent = "✔ Adicionado";
-        btn.disabled = true;
-        setTimeout(() => {
-          btn.textContent = "Adicionar";
-          btn.disabled = false;
-        }, 1500);
-      }
-    }
-
-    // ===== Filtro lateral (mobile) =====
-    const filterToggle = document.querySelector('.filter-toggle');
-    const filterSidebar = document.getElementById('filterSidebar');
-
-    filterToggle.addEventListener('click', () => {
-      filterSidebar.classList.toggle('active');
-    });
-
-    document.addEventListener('click', (e) => {
-      if (filterSidebar.classList.contains('active') &&
-          !filterSidebar.contains(e.target) &&
-          e.target !== filterToggle) {
-        filterSidebar.classList.remove('active');
+        produto.style.display = 'none';
       }
     });
 
-    // ===== Função de filtro (desktop + mobile) =====
-    function filtrarCategoria(categoria) {
-      const produtos = document.querySelectorAll('.product');
-      produtos.forEach(produto => {
-        if (categoria === 'todos' || produto.dataset.categoria.toLowerCase() === categoria.toLowerCase()) {
-          produto.style.display = 'flex';
-        } else {
-          produto.style.display = 'none';
-        }
-      });
-
-      // Fecha a barra lateral no mobile após seleção
-      if (filterSidebar && filterSidebar.classList.contains('active')) {
-        filterSidebar.classList.remove('active');
-      }
+    // Fecha a barra lateral no mobile após seleção
+    if (filterSidebar && filterSidebar.classList.contains('active')) {
+      filterSidebar.classList.remove('active');
     }
-  </script>
+  }
+</script>
+
 </body>
 </html>
