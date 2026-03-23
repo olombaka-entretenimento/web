@@ -68,13 +68,13 @@ html, body {
    Menu Mobile (novo estilo)
 =========================== */
 .mobile-menu {
-  display: none;              /* escondido por padrão */
+  display: none;               /* escondido por padrão */
   flex-direction: column;
-  background-color: #FFD700;  /* fundo dourado */
+  background-color: #FFD700;   /* fundo dourado */
   position: absolute;
-  top: 70px;                  /* abaixo da navbar */
-  right: 0;                   /* alinhado à direita */
-  width: 220px;               /* largura fixa */
+  top: 70px;                   /* abaixo da navbar */
+  right: 0;                    /* alinhado à direita */
+  width: 220px;                /* largura fixa */
   padding: 10px;
   border-radius: 6px;
   box-shadow: 0 4px 10px rgba(0,0,0,0.4);
@@ -97,7 +97,7 @@ html, body {
 }
 
 .mobile-menu.active {
-  display: flex;              /* só aparece quando ativo */
+  display: flex;               /* só aparece quando ativo */
 }
 
 @media (max-width: 600px) {
