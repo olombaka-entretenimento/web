@@ -98,6 +98,150 @@
 
 <!-- Script -->
 <script>
+  // Lightbox
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.querySelector('.lightbox-img');
+  const caption = document.querySelector('.caption');
+  const linkBtn = document.getElementById('lightbox-link');
+  const closeBtn = document.querySelector('.close');
+
+  document.querySelectorAll('.galeria img').forEach(img => {
+    img.addEventListener('click', () => {
+      lightbox.style.display = 'flex';
+      lightboxImg.src = img.src;
+      caption.textContent = img.dataset.desc;
+      linkBtn.href = img.dataset.link;
+      linkBtn.removeAttribute("target"); // abre na mesma página
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.style.display = 'none';
+  });
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.style.display = 'none';
+    }
+  });
+
+  // Menu Mobile
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  // Fecha menu ao clicar num link
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camama Tropical | Página Inicial</title>
+  <link rel="stylesheet" href="master.css"> <!-- CSS central -->
+  <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
+    </a>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+
+  <!-- Menu mobile -->
+  <ul class="mobile-menu">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram Camama Tropical"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+  <section class="ambiente">
+    <h1 style="text-align:center; color:#FFD700;">Bem-vindo ao Camama Tropical</h1>
+    <p style="text-align:center;">O espaço ideal em Luanda para <strong>filmes, teatro, shows de humor, eventos e gastronomia</strong>.</p>
+
+    <!-- Galeria com data-link e descrição -->
+    <div class="galeria">
+      <img src="imagens/standup.jpg" alt="Show de Humor" data-link="stand.html" data-desc="Noites de stand-up com os melhores humoristas.">
+      <img src="imagens/teatro.jpg" alt="Teatro" data-link="teatro.html" data-desc="Peças culturais e artísticas todas as semanas.">
+      <img src="imagens/musicaaovivo.jpg" alt="Música ao Vivo" data-link="eventos.html" data-desc="Apresentações musicais todas as quintas-feiras.">
+      <img src="imagens/karaoke.jpg" alt="Karaoke" data-link="eventos.html" data-desc="Noites de diversão com karaoke para todos.">
+      <img src="imagens/champions.jpg" alt="Champions" data-link="eventos.html" data-desc="Transmissão dos melhores jogos da Champions.">
+      <img src="imagens/jantar.jpg" alt="Jantar Corporativo" data-link="eventos.html" data-desc="Espaço ideal para eventos empresariais.">
+      <img src="imagens/filmeslogo.png" alt="Sessões de Filmes" data-link="filme.html" data-desc="Programação semanal de cinema.">
+      <img src="imagens/salaodefestas.jpg" alt="Salão de Festas" data-link="eventos.html" data-desc="Espaço para casamentos, aniversários e celebrações.">
+      <img src="imagens/Fute2026.jpg" alt="Fute 2026" data-link="fute2026.html" data-desc="Campeonatos de futebol virtual em Playstation.">
+    </div>
+  </section>
+</main>
+
+<!-- Lightbox com descrição e botão -->
+<div id="lightbox" class="lightbox">
+  <span class="close">&times;</span>
+  <img class="lightbox-img" src="" alt="">
+  <div class="caption"></div>
+  <a id="lightbox-link" href="#" class="btn-saiba">Saiba mais...</a>
+</div>
+
+<!-- Script -->
+<script>
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.querySelector('.lightbox-img');
   const caption = document.querySelector('.caption');
