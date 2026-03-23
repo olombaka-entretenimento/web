@@ -166,16 +166,23 @@ html, body {
   text-align: center;
 }
 
-#lightbox-link {
-  margin-top: 10px;
-  color: #FFD700;
+/* Botão Saiba mais... */
+.btn-saiba {
+  margin-top: 12px;
+  display: inline-block;
+  padding: 8px 16px;
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #111;
   font-weight: bold;
+  border-radius: 6px;
   text-decoration: none;
-  transition: color 0.3s;
+  transition: all 0.3s ease;
 }
 
-#lightbox-link:hover {
-  color: #FF4C4C;
+.btn-saiba:hover {
+  background: linear-gradient(135deg, #FF4C4C, #007BFF);
+  color: #fff;
+  transform: scale(1.05);
 }
 
 /* ===========================
