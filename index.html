@@ -5,7 +5,161 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Camama Tropical | Página Inicial</title>
   <link rel="stylesheet" href="mestre.css"> <!-- CSS padrão -->
+  <link rel="icon" type="image/jpg" href="imagens/logo.jpg"><!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Camama Tropical | Página Inicial</title>
+  <link rel="stylesheet" href="mestre.css"> <!-- CSS padrão -->
   <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
+    </a>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+
+  <!-- Menu mobile (Pilot) -->
+  <ul class="mobile-menu">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+  <section class="ambiente">
+    <h1 style="text-align:center; color:#FFD700;">Bem-vindo ao Camama Tropical</h1>
+    <p style="text-align:center;">O espaço ideal em Luanda para <strong>filmes, teatro, shows de humor, eventos e gastronomia</strong>.</p>
+
+    <!-- Galeria com proporção 1:1 -->
+    <div class="galeria">
+      <img src="imagens/filmeslogo.png" alt="Sessões de Filmes" data-link="filme.html" data-desc="Programação semanal de cinema.">
+      <img src="imagens/teatro.jpg" alt="Teatro" data-link="teatro.html" data-desc="Peças culturais e artísticas todas as semanas.">
+      <img src="imagens/standup.jpg" alt="Show de Humor" data-link="stand.html" data-desc="Noites de stand-up com os melhores humoristas.">
+      <img src="imagens/eventos.jpg" alt="Eventos" data-link="eventos.html" data-desc="Espaço para casamentos, aniversários e celebrações.">
+    </div>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="poster" src="" alt="Poster">
+    <div class="detalhes">
+      <h3 id="titulo"></h3>
+      <p id="descricao"></p>
+      <a id="modal-link" href="#" class="btn-saiba">Saiba mais...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+  // Modal
+  const modal = document.getElementById('modal');
+  const poster = document.getElementById('poster');
+  const titulo = document.getElementById('titulo');
+  const descricao = document.getElementById('descricao');
+  const modalLink = document.getElementById('modal-link');
+  const closeBtn = document.querySelector('.close');
+
+  document.querySelectorAll('.galeria img').forEach(img => {
+    img.addEventListener('click', () => {
+      poster.src = img.src;
+      titulo.textContent = img.alt;
+      descricao.textContent = img.dataset.desc;
+      modalLink.href = img.dataset.link;
+      modalLink.removeAttribute("target"); // abre na mesma aba
+      modal.style.display = 'flex';
+    });
+  });
+
+  closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+  });
+
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+      modal.style.display = 'none';
+    }
+  });
+
+  // Menu Mobile Pilot
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuToggle) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+</script>
+
+</body>
+</html>
 </head>
 <body>
 
