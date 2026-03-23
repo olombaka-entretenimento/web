@@ -41,7 +41,7 @@
     </li>
   </ul>
 
-  <!-- Menu mobile -->
+  <!-- Menu mobile (Pilot) -->
   <ul class="mobile-menu">
     <li><a href="cardapio.html">Cardápio</a></li>
     <li><a href="pedidos.html">Pedidos</a></li>
@@ -125,19 +125,30 @@
     }
   });
 
-  // Menu Mobile
+  // Menu Mobile Pilot
   const menuToggle = document.querySelector('.menu-toggle');
   const mobileMenu = document.querySelector('.mobile-menu');
 
-  menuToggle.addEventListener('click', () => {
+  // Abre/fecha ao clicar no botão ☰
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
     mobileMenu.classList.toggle('active');
   });
 
-  // Fecha menu ao clicar num link
+  // Fecha ao clicar num link
   document.querySelectorAll('.mobile-menu a').forEach(link => {
     link.addEventListener('click', () => {
       mobileMenu.classList.remove('active');
     });
+  });
+
+  // Fecha ao clicar fora do menu
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuToggle) {
+      mobileMenu.classList.remove('active');
+    }
   });
 </script>
 
