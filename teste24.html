@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste24 | Camama Tropical</title>
+  <link rel="stylesheet" href="master1.css">
+  <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
+    </a>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+
+  <!-- Menu mobile -->
+  <ul class="mobile-menu">
+    <li><a href="cardapio.html">Cardápio</a></li>
+    <li><a href="pedidos.html">Pedidos</a></li>
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Conteúdo principal -->
+<main>
+  <section class="ambiente">
+    <h1 style="text-align:center; color:#FFD700;">Página de Teste 24</h1>
+    <p style="text-align:center;">Testando menu Pilot, galeria e modal.</p>
+
+    <!-- Galeria -->
+    <ul class="grid-filmes">
+      <li class="filme" data-filme="insideout2">
+        <img src="imagens/insideout2.jpg" alt="Divertida Mente 2">
+        <div class="info">
+          <h3>Divertida Mente 2</h3>
+          <p>Animação | +6 | 1h40</p>
+        </div>
+      </li>
+      <li class="filme" data-filme="caramelo">
+        <img src="imagens/caramelo.jpg" alt="Caramelo">
+        <div class="info">
+          <h3>Caramelo</h3>
+          <p>Comédia dramática | +12 | 1h50</p>
+        </div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="poster" src="" alt="Poster do Filme">
+    <div class="detalhes">
+      <h3 id="titulo"></h3>
+      <p id="detalhes"></p>
+      <a id="modal-link" href="#" class="btn-saiba">Saiba mais...</a>
+    </div>
+  </div>
+</div>
+
+<!-- Script -->
+<script>
+const filmesDetalhes = {
+  insideout2:{
+    poster:"imagens/insideout2.jpg",
+    titulo:"Divertida Mente 2",
+    detalhes:"Na mente de Riley, novas Emoções surgem. Animação | +6 | 1h40"
+  },
+  caramelo:{
+    poster:"imagens/caramelo.jpg",
+    titulo:"Caramelo",
+    detalhes:"Um jovem chef encontra esperança na amizade com um cão fantástico. Comédia dramática | +12 | 1h50"
+  }
+};
+
+// Modal
+const modal = document.getElementById("modal");
+const poster = document.getElementById("poster");
+const titulo = document.getElementById("titulo");
+const detalhes = document.getElementById("detalhes");
+const modalLink = document.getElementById("modal-link");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".filme").forEach(item => {
+  item.addEventListener("click", () => {
+    const filmeId = item.dataset.filme;
+    const filme = filmesDetalhes[filmeId];
+    poster.src = filme.poster;
+    titulo.textContent = filme.titulo;
+    detalhes.textContent = filme.detalhes;
+    modalLink.href = "filme.html"; // link genérico para teste
+    modal.style.display = "flex";
+  });
+});
+
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+window.addEventListener("click", (e) => {
+  if (e.target === modal) {
+    modal.style.display = "none";
+  }
+});
+
+// Menu Mobile Pilot
+const menuToggle = document.querySelector('.menu-toggle');
+const mobileMenu = document.querySelector('.mobile-menu');
+
+menuToggle.addEventListener('click', (e) => {
+  e.stopPropagation();
+  mobileMenu.classList.toggle('active');
+});
+
+document.querySelectorAll('.mobile-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileMenu.classList.remove('active');
+  });
+});
+
+document.addEventListener('click', (e) => {
+  if (mobileMenu.classList.contains('active') &&
+      !mobileMenu.contains(e.target) &&
+      e.target !== menuToggle) {
+    mobileMenu.classList.remove('active');
+  }
+});
+</script>
+
+</body>
+</html>
