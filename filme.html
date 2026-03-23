@@ -29,6 +29,22 @@
         </a>
       </li>
   </ul>
+  
+  <ul class="mobile-menu">
+  <li><a href="cardapio.html">Cardápio</a></li>
+  <li><a href="pedidos.html">Pedidos</a></li>
+  <li><a href="filme.html">Filmes</a></li>
+  <li><a href="eventos.html">Eventos</a></li>
+  <li><a href="contactos.html">Contactos</a></li>
+  <li><a href="https://www.instagram.com/olombakaentretenimento" target="_blank">Instagram</a></li>
+  <li>
+    <a href="https://wa.me/244976194731" target="_blank">
+      <img src="imagens/whatsapp-logo.jpg" alt="Posso ajudar?" style="height:20px;vertical-align:middle;margin-right:6px;">
+      Posso ajudar?
+    </a>
+  </li>
+</ul>
+
 </nav>
 
 <main>
@@ -203,6 +219,29 @@ window.addEventListener("click", (e) => {
     modal.style.display = "none";
   }
 });
+
+  const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', () => {
+    mobileMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuToggle) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+
+
 </script>
 </body>
 </html>
