@@ -575,7 +575,7 @@ main.ambiente {
   color: #444;
 }
 
-/* ===== Botão Trailer ===== */
+/* Botão Trailer */
 .btn-trailer {
   display: inline-block;
   padding: 10px 18px;
@@ -592,11 +592,7 @@ main.ambiente {
   background-color: #b71c1c;
 }
 
-/* ===== Player Trailer ===== */
-#trailer-container {
-  margin-top: 15px;
-}
-
+/* Player Trailer */
 #trailer-frame {
   border: none;
   border-radius: 6px;
