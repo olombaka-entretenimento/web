@@ -277,6 +277,24 @@
 <!-- JavaScript embutido -->
 <script>
 
+const menuToggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+const mobileMenu = document.querySelector(".mobile-menu");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("active");
+  mobileMenu.classList.toggle("active");
+});
+
+// Fecha ao clicar fora
+document.addEventListener("click", (event) => {
+  const isClickInside = navLinks.contains(event.target) || mobileMenu.contains(event.target) || menuToggle.contains(event.target);
+  if (!isClickInside) {
+    navLinks.classList.remove("active");
+    mobileMenu.classList.remove("active");
+  }
+});
+
 const filmesDetalhes = {
   insideout2:{
     poster:"imagens/insideout2.jpg",
@@ -368,14 +386,6 @@ window.addEventListener("click", (event) => {
   }
 });
 
-const menuToggle = document.querySelector(".menu-toggle");
-  const navLinks = document.querySelector(".nav-links");
-  const mobileMenu = document.querySelector(".mobile-menu");
-
-  menuToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("active");
-    mobileMenu.classList.toggle("active");
-  });
 
 
 </script>
