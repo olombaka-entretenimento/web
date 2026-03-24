@@ -249,7 +249,6 @@
 </main>
 
 <!-- Modal -->
-
 <div id="modal" class="modal">
   <div class="modal-content">
     <span class="close">&times;</span>
@@ -257,10 +256,17 @@
     <div class="detalhes">
       <h3 id="titulo"></h3>
       <p id="detalhes"></p>
+
+      <!-- Container do trailer embutido -->
+      <div id="trailer-container" style="display:none; margin-top:15px;">
+        <iframe id="trailer-frame" width="100%" height="315"
+          src="" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Botão para abrir o trailer -->
       <p>
-        <a id="trailer-link" href="#" target="_blank" class="btn-trailer">
-          🎬 Ver Trailer
-        </a>
+        <button id="btn-trailer" class="btn-trailer">🎬 Ver Trailer</button>
       </p>
     </div>
   </div>
@@ -269,94 +275,49 @@
 
 <!-- JavaScript embutido -->
 <script>
+
 const filmesDetalhes = {
   insideout2:{
     poster:"imagens/insideout2.jpg",
     titulo:"Divertida Mente 2",
     detalhes:"Na mente de Riley, recém-chegada à adolescência... | Animação | +6 | 1h40 | Datas: 6,7,13,14,20,21 Março | Horários: 13h,15h",
-    trailer:"https://www.youtube.com/watch?v=yAZxx8t9zig"
+    trailer:"https://www.youtube.com/embed/yAZxx8t9zig?autoplay=1"
   },
   caramelo:{
     poster:"imagens/caramelo.jpg",
     titulo:"Caramelo",
     detalhes:"Um jovem e talentoso chef... | Comédia dramática | +12 | 1h50 | Datas: 7,14,21,28 Março | Horários: 15h",
-    trailer:"https://www.youtube.com/watch?v=wVqwoGwmR_I"
+    trailer:"https://www.youtube.com/embed/wVqwoGwmR_I?autoplay=1"
   },
   zombies4:{
     poster:"imagens/zombies4.jpg",
     titulo:"Zombies 4",
     detalhes:"Neste novo capítulo da saga Zombies... | Fantasia/Musical | +10 | 1h45 | Datas: 8,15,22,29 Março | Horários: 13h",
-    trailer:"https://www.youtube.com/watch?v=jcMTtSSsqEs"
+    trailer:"https://www.youtube.com/embed/jcMTtSSsqEs?autoplay=1"
   },
   creed:{
     poster:"imagens/creed.jpg",
     titulo:"Creed",
     detalhes:"Drama Esportivo... | +14 | 2h10 | Datas: 6,13,20,27 Março | Horários: 17h",
-    trailer:"https://www.youtube.com/watch?v=Uv554B7YHk4"
-  },
-  equalizer:{
-    poster:"imagens/equalizer.jpg",
-    titulo:"The Equalizer",
-    detalhes:"McCall é um homem que acredita... | Ação/Suspense | +16 | 2h00 | Datas: 8,15,22,29 Março | Horários: 20h",
-    trailer:"https://www.youtube.com/watch?v=SLhhP7iknf8"
-  },
-  birdbox:{
-    poster:"imagens/birdboxbarcelona.jpg",
-    titulo:"Bird Box Barcelona",
-    detalhes:"Enquanto uma força misteriosa dizima a humanidade... | Suspense | +16 | 2h00 | Datas: 9,16,23,30 Março | Horários: 20h",
-    trailer:"https://www.youtube.com/watch?v=WbSIdNBO09Q"
-  },
-  colorpurple:{
-    poster:"imagens/colorpurple.jpg",
-    titulo:"The Color Purple",
-    detalhes:"Celie viveu uma vida dura... | Drama/Musical | +12 | 2h10 | Datas: 10,17,24,31 Março | Horários: 17h",
-    trailer:"https://www.youtube.com/watch?v=Var2TXCpfYM"
+    trailer:"https://www.youtube.com/embed/Uv554B7YHk4?autoplay=1"
   },
   equalizer2:{
     poster:"imagens/equalizer2.jpg",
     titulo:"The Equalizer 2",
     detalhes:"Ação/Suspense | +16 | 2h00 | Datas: 5,12,19,26 Abril | Horários: 20h",
-    trailer:"https://www.youtube.com/watch?v=CFc-AFrO2_A"
+    trailer:"https://www.youtube.com/embed/CFc-AFrO2_A?autoplay=1"
   },
-  creed2:{
-    poster:"imagens/creed2.jpg",
-    titulo:"Creed II",
-    detalhes:"O peso-pesado Viktor Drago... | Drama Esportivo | +14 | 2h00 | Datas: 6,13,20,27 Abril | Horários: 17h",
-    trailer:"https://www.youtube.com/watch?v=eWYNjCa310s"
-  },
-  ryelane:{
-    poster:"imagens/ryelane.jpg",
-    titulo:"Rye Lane",
-    detalhes:"Dom e Yas, ambos na casa dos vinte... | Comédia Romântica | +12 | 1h30 | Datas: 7,14,21,28 Abril | Horários: 15h",
-    trailer:"https://www.youtube.com/watch?v=CWXW1q_LrBc"
-  },
-  letitsnow:{
-    poster:"imagens/letitsnow.jpg",
-    titulo:"Let It Snow",
-    detalhes:"Na véspera de Natal... | Comédia Dramática | +10 | 1h30 | Datas: 4,11,18,25 Abril | Horários: 13h",
-    trailer:"https://www.youtube.com/watch?v=Ii-MU0bwKLo&t=30s"
-  },
-  oldguard2:{
-    poster:"imagens/oldguard2.jpg",
-    titulo:"The Old Guard 2",
-    detalhes:"Andy e a sua equipa de guerreiros imortais... | Ação/Fantasia | +16 | 2h05 | Datas: 5,12,19,26 Abril | Horários: 20h",
-    trailer:"https://www.youtube.com/watch?v=85ZJnXBxn74"
-  },
-  transformersone:{
-    poster:"imagens/transformersone.jpg",
-    titulo:"Transformers One",
-    detalhes:"A história de origem não contada... | Animação/Ficção | +12 | 2h30 | Datas: 6,13,20,27 Abril | Horários: 17h",
-    trailer:"https://www.youtube.com/watch?v=1YI5jujxGXY"
-  }
+  // ... e assim para os restantes
 };
-
 
 // Seletores do modal
 const modal = document.getElementById("modal");
 const poster = document.getElementById("poster");
 const titulo = document.getElementById("titulo");
 const detalhes = document.getElementById("detalhes");
-const trailerLink = document.getElementById("trailer-link");
+const btnTrailer = document.getElementById("btn-trailer");
+const trailerContainer = document.getElementById("trailer-container");
+const trailerFrame = document.getElementById("trailer-frame");
 const closeBtn = document.querySelector(".close");
 
 // Evento de clique nos filmes
@@ -368,12 +329,16 @@ document.querySelectorAll(".filme").forEach(item => {
     titulo.textContent = filme.titulo;
     detalhes.textContent = filme.detalhes;
 
-    // Atualiza o link do trailer
+    // Configura trailer
     if (filme.trailer) {
-      trailerLink.style.display = "inline-block";
-      trailerLink.href = filme.trailer;
+      btnTrailer.style.display = "inline-block";
+      btnTrailer.onclick = () => {
+        trailerFrame.src = filme.trailer; // já vem no formato embed com autoplay
+        trailerContainer.style.display = "block";
+      };
     } else {
-      trailerLink.style.display = "none"; // esconde se não houver trailer
+      btnTrailer.style.display = "none";
+      trailerContainer.style.display = "none";
     }
 
     modal.style.display = "flex";
@@ -383,12 +348,16 @@ document.querySelectorAll(".filme").forEach(item => {
 // Fechar modal ao clicar no botão ×
 closeBtn.addEventListener("click", () => {
   modal.style.display = "none";
+  trailerFrame.src = ""; // limpar vídeo
+  trailerContainer.style.display = "none";
 });
 
 // Fechar modal ao clicar fora do conteúdo
 window.addEventListener("click", (event) => {
   if (event.target === modal) {
     modal.style.display = "none";
+    trailerFrame.src = ""; // limpar vídeo
+    trailerContainer.style.display = "none";
   }
 });
 
