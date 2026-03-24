@@ -417,3 +417,106 @@ html, body {
 #contactos p {
   text-align: center;
 }
+
+/* ===========================
+   Cardápio - Produtos
+=========================== */
+main.ambiente {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+  padding: 30px;
+}
+
+.product {
+  background: #1a1a1a;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(255,215,0,0.4);
+}
+
+.product img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border-radius: 8px;
+  background-color: #000;
+}
+
+.product h3 {
+  color: #FFD700;
+  margin: 8px 0 4px;
+}
+
+.product .price {
+  font-weight: bold;
+  color: #fff;
+}
+
+.product button {
+  padding: 8px 14px;
+  background: linear-gradient(135deg, #FFD700, #FF4C4C);
+  color: #111;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.product button:hover {
+  background: linear-gradient(135deg, #FF4C4C, #007BFF);
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* ===========================
+   Filtro Central (único)
+=========================== */
+.filter-dropdown {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.filter-dropdown select {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  font-weight: bold;
+  background: #FFD700;
+  color: #111;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-dropdown select:hover {
+  background: #FF4C4C;
+  color: #fff;
+}
+
+/* Botão Ver Trailer */
+.btn-trailer {
+  display: inline-block;
+  padding: 10px 18px;
+  background-color: #e63946; /* vermelho chamativo */
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-trailer:hover {
+  background-color: #b71c1c; /* tom mais escuro ao passar o mouse */
+}
