@@ -56,21 +56,23 @@ html, body {
 }
 
 .menu-toggle {
-  display: block;          /* garante que aparece */
+  display: none; /* escondido no desktop */
   background: none;
   border: none;
-  font-size: 32px;         /* aumenta o ícone ☰ */
+  font-size: 32px;   /* ícone maior */
   cursor: pointer;
-  width: 60px;             /* aumenta a largura do botão */
-  height: 40px;            /* altura confortável */
+  width: 60px;
+  height: 40px;
   text-align: center;
-  line-height: 40px;       /* centraliza o ícone verticalmente */
-  margin-left: 2cm;        /* desloca 2cm para o centro */
+  line-height: 40px;
 }
 
-@media (max-width: 600px) {
-  .nav-links { display: none; }
-  .menu-toggle { display: block; }
+/* Mostrar apenas em mobile */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: block;
+    margin: 0 auto;   /* centraliza na navbar */
+  }
 }
 
 /* ===========================
