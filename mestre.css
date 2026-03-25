@@ -257,7 +257,13 @@ html, body {
   }
 }
 
-
+.modal-filme {
+  max-height: 90vh;       /* limita a altura ao viewport */
+  overflow-y: auto;       /* ativa o scroll vertical */
+  overflow-x: hidden;     /* evita scroll horizontal */
+  padding: 20px;          /* mantém espaçamento interno */
+  box-sizing: border-box; /* garante consistência no layout */
+}
 
 .close {
   color: #FFD700;
