@@ -44,11 +44,20 @@ html, body {
   transition: color 0.3s;
 }
 
-.nav-links li a:hover {
-  color: #FF4C4C;
-  
-  
-  
+.nav-links li a,
+.mobile-menu li a {
+  display: block;       /* ocupa a linha toda */
+  width: 100%;          /* garante largura total */
+  padding: 12px;        /* aumenta área clicável */
+  text-decoration: none;
+  color: inherit;       /* mantém cor atual */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+.nav-links li a:hover,
+.mobile-menu li a:hover {
+  background-color: rgba(0,0,0,0.05); /* leve destaque no hover */
 }
 
 .menu-toggle {
