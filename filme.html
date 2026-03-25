@@ -66,63 +66,61 @@
 <main>
   <section id="programacao">
    
-    <!-- Março -->
-    <h3>Março</h3>
-    <ul class="grid-filmes">
+        <ul class="grid-filmes">
   <!-- Sessões 13h e 15h (Infantil) -->
-  <li class="filme" data-filme="toystory">
-    <img src="imagens/toystory.jpg" alt="Toy Story">
-    <div class="info">
-      <h3>Toy Story</h3>
-      <p><strong>Original:</strong> Toy Story</p>
-      <p><strong>Gênero:</strong> Animação</p>
-      <p><strong>Classificação:</strong> Livre</p>
-      <p><strong>Duração:</strong> 1h20</p>
-      <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
-      <p><strong>Horários:</strong> 13h</p>
-    </div>
-  </li>
+  
+  <li class="filme" data-filme="insideout">
+  <img src="imagens/insideout.jpg" alt="Divertida Mente">
+  <div class="info">
+    <h3>Divertida Mente</h3>
+    <p><strong>Original:</strong> Inside Out</p>
+    <p><strong>Gênero:</strong> Animação</p>
+    <p><strong>Classificação:</strong> Livre</p>
+    <p><strong>Duração:</strong> 1h35</p>
+    <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
+    <p><strong>Horários:</strong> 13h</p>
+  </div>
+</li>
 
-  <li class="filme" data-filme="insideout2">
-    <img src="imagens/insideout2.jpg" alt="Divertida Mente 2">
-    <div class="info">
-      <h3>Divertida Mente 2</h3>
-      <p><strong>Original:</strong> Inside Out 2</p>
-      <p><strong>Gênero:</strong> Animação</p>
-      <p><strong>Classificação:</strong> +6</p>
-      <p><strong>Duração:</strong> 1h40</p>
-      <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
-      <p><strong>Horários:</strong> 15h</p>
-    </div>
-  </li>
+  <li class="filme" data-filme="spiderman-nwh">
+  <img src="imagens/spiderman-nwh.jpg" alt="Homem-Aranha: Sem Volta Para Casa">
+  <div class="info">
+    <h3>Homem-Aranha: Sem Volta Para Casa</h3>
+    <p><strong>Original:</strong> Spider-Man: No Way Home</p>
+    <p><strong>Gênero:</strong> Ação / Aventura / Fantasia</p>
+    <p><strong>Classificação:</strong> +12</p>
+    <p><strong>Duração:</strong> 2h28</p>
+    <p><strong>Datas:</strong> 2, 3, 4, 5, 6, 7 Abril</p>
+    <p><strong>Horários:</strong> 15h</p>
+  </div>
+</li>
 
   <!-- Sessões 17h e 20h (Adulto) -->
-  <li class="filme" data-filme="dunkirk">
-    <img src="imagens/dunkirk.jpg" alt="Dunkirk">
-    <div class="info">
-      <h3>Dunkirk</h3>
-      <p><strong>Original:</strong> Dunkirk</p>
-      <p><strong>Gênero:</strong> Guerra / Drama</p>
-      <p><strong>Classificação:</strong> +14</p>
-      <p><strong>Duração:</strong> 1h45</p>
-      <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
-      <p><strong>Horários:</strong> 17h</p>
-    </div>
-  </li>
+  <li class="filme" data-filme="havoc">
+  <img src="imagens/havoc.jpg" alt="Havoc">
+  <div class="info">
+    <h3>Havoc</h3>
+    <p><strong>Original:</strong> Havoc</p>
+    <p><strong>Gênero:</strong> Ação / Suspense</p>
+    <p><strong>Classificação:</strong> +16</p>
+    <p><strong>Duração:</strong> 2h05</p>
+    <p><strong>Datas:</strong> 22, 23, 24, 25, 26 Abril</p>
+    <p><strong>Horários:</strong> 17h</p>
+  </div>
+</li>
 
-  <li class="filme" data-filme="gonegirl">
-    <img src="imagens/gonegirl.jpg" alt="Gone Girl">
-    <div class="info">
-      <h3>Gone Girl</h3>
-      <p><strong>Original:</strong> Gone Girl</p>
-      <p><strong>Gênero:</strong> Suspense / Thriller</p>
-      <p><strong>Classificação:</strong> +16</p>
-      <p><strong>Duração:</strong> 2h30</p>
-      <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
-      <p><strong>Horários:</strong> 20h</p>
-    </div>
-  </li>
-</ul>
+  <li class="filme" data-filme="sinners">
+  <img src="imagens/sinners.jpg" alt="Sinners">
+  <div class="info">
+    <h3>Pecadores</h3>
+    <p><strong>Original:</strong> Sinners</p>
+    <p><strong>Gênero:</strong> Terror / Fantasia / Ação</p>
+    <p><strong>Classificação:</strong> +16</p>
+    <p><strong>Duração:</strong> 2h17</p>
+    <p><strong>Datas:</strong> 17, 18, 19, 20, 21 Abril</p>
+    <p><strong>Horários:</strong> 20h</p>
+  </div>
+</li>
 
     
   </section>
@@ -180,29 +178,32 @@ const menuToggle = document.querySelector('.menu-toggle');
   });
   
 const filmesDetalhes = {
-  toystory:{
-    poster:"imagens/toystory.jpg",
-    titulo:"Toy Story",
-    detalhes:"Quando um reluzente 'ranger' do espaço chamado Buzz Lightyear invade o mundo de um cowboy de corda chamado Woody, desencadeia uma hilariante briga entre brinquedos. Agora o favoritismo de Woody no coração do seu dono está em perigo... assim como as vidas de Buzz e Woody. Acidentalmente levados para longe de casa, estes dois rivais caem nas garras de um vizinho mau e fanfarrão e têm de trabalhar em equipa se querem escapar. Com os amigos brinquedos, Rex o Dinossauro, o exército dos Homens Verdes e o Sr. Cabeça de Batata, dispostos a ajudar, Woody e Buzz selam a sua amizade nesta fenomenal aventura para regressarem a casa | Animação | Livre | 1h20 | Datas: 27-1 Abril | Horário: 13h",
-    trailer:"https://www.youtube.com/embed/KYz2wyBy3kc?autoplay=1"
+  insideout:{
+    poster:"imagens/insideout.jpg",
+    titulo:"Divertida Mente",
+    detalhes:"Na mente da jovem Riley, as emoções Alegria, Tristeza, Raiva, Medo e Nojinho disputam o controle enquanto ela enfrenta mudanças importantes na vida, como a mudança de cidade e escola. Essa jornada mostra como cada emoção tem um papel essencial na construção da personalidade e nas relações | Animação | Livre | 1h35 | Datas: 27-1 Abril | Horário: 15h",
+    trailer:"https://www.youtube.com/watch?v=w2YRoV--CHo"
   },
-  insideout2:{
-    poster:"imagens/insideout2.jpg",
-    titulo:"Divertida Mente 2",
-    detalhes:"Na mente de Riley, recém-chegada à adolescência... | Animação | +6 | 1h40 | Datas: 27-1 Abril | Horário: 15h",
-    trailer:"https://www.youtube.com/embed/yAZxx8t9zig?autoplay=1"
+
+  spidermannwh:{
+    poster:"imagens/spiderman-nwh.jpg",
+    titulo:"Homem-Aranha: Sem Volta Para Casa",
+    detalhes:"Após sua identidade ser revelada ao mundo, Peter Parker pede ajuda ao Doutor Estranho para que todos esqueçam que ele é o Homem-Aranha. Mas o feitiço dá errado e abre as portas do multiverso, trazendo vilões de outras realidades. Agora, Peter precisa enfrentar desafios que vão mudar sua vida para sempre | Ação / Aventura / Fantasia | +12 | 2h28 | Datas: 2-7 Abril | Horário: 20h",
+    trailer:"https://www.youtube.com/watch?v=CyiiEJRZjSU&t=35s"
   },
-  dunkirk:{
-    poster:"imagens/dunkirk.jpg",
-    titulo:"Dunkirk",
-    detalhes:"Drama de guerra sobre a evacuação de Dunkirk | Guerra / Drama | +14 | 1h45 | Datas: 27-1 Abril | Horário: 17h",
-    trailer:"https://www.youtube.com/embed/F-eMt3SrfFU?autoplay=1"
+
+  havoc:{
+    poster:"imagens/havoc.jpg",
+    titulo:"Havoc",
+    detalhes:"Um detetive veterano se vê preso em uma rede de corrupção e violência após uma negociação de drogas dar errado. Para salvar seu filho e expor a verdade, ele precisa atravessar um submundo brutal e enfrentar inimigos poderosos | Ação / Suspense | +16 | 2h05 | Datas: 22-26 Abril | Horário: 20h",
+    trailer:"https://www.youtube.com/watch?v=nuAmSRp9QR0"
   },
-  gonegirl:{
-    poster:"imagens/gonegirl.jpg",
-    titulo:"Gone Girl",
-    detalhes:"Thriller psicológico baseado no livro de Gillian Flynn | Suspense / Thriller | +16 | 2h30 | Datas: 27-1 Abril | Horário: 20h",
-    trailer:"https://www.youtube.com/embed/2-_-1nJf8Vg?autoplay=1"
+
+  sinners:{
+    poster:"imagens/sinners.jpg",
+    titulo:"Pecadores",
+    detalhes:"Dois irmãos retornam à cidade natal tentando reconstruir suas vidas, mas uma força maligna começa a persegui-los, trazendo à tona medos e traumas antigos. Misturando terror psicológico, fantasia sombria e ação intensa, o filme explora temas de culpa, redenção e enfrentamento dos próprios demônios | Terror / Fantasia / Ação | +16 | 2h17 | Datas: 17-21 Abril | Horário: 20h",
+    trailer:"https://www.youtube.com/watch?v=iCgB8k7ftx4"
   }
 }
 
