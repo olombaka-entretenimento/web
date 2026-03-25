@@ -77,6 +77,274 @@
     <p><strong>Gênero:</strong> Animação</p>
     <p><strong>Classificação:</strong> Livre</p>
     <p><strong>Duração:</strong> 1h35</p>
+    <p><strong>Data:</strong> Em exibição</p>
+    <p><strong>Horários:</strong> 13h</p>
+  </div>
+</li>
+
+<li class="filme" data-filme="spidermannwh">
+  <img src="imagens/spiderman-nwh.jpg" alt="Homem-Aranha: Sem Volta Para Casa">
+  <div class="info">
+    <h3>Homem-Aranha: Sem Volta Para Casa</h3>
+    <p><strong>Original:</strong> Spider-Man: No Way Home</p>
+    <p><strong>Gênero:</strong> Ação / Aventura / Fantasia</p>
+    <p><strong>Classificação:</strong> +12</p>
+    <p><strong>Duração:</strong> 2h28</p>
+    <p><strong>Data:</strong> Em exibição</p>
+    <p><strong>Horários:</strong> 15h</p>
+  </div>
+</li>
+
+<li class="filme" data-filme="havoc">
+  <img src="imagens/havoc.jpg" alt="Havoc">
+  <div class="info">
+    <h3>Havoc</h3>
+    <p><strong>Original:</strong> Havoc</p>
+    <p><strong>Gênero:</strong> Ação / Suspense</p>
+    <p><strong>Classificação:</strong> +16</p>
+    <p><strong>Duração:</strong> 2h05</p>
+    <p><strong>Data:</strong> Em exibição</p>
+    <p><strong>Horários:</strong> 17h</p>
+  </div>
+</li>
+
+<li class="filme" data-filme="sinners">
+  <img src="imagens/sinners.jpg" alt="Sinners">
+  <div class="info">
+    <h3>Pecadores</h3>
+    <p><strong>Original:</strong> Sinners</p>
+    <p><strong>Gênero:</strong> Terror / Fantasia / Ação</p>
+    <p><strong>Classificação:</strong> +16</p>
+    <p><strong>Duração:</strong> 2h17</p>
+    <p><strong>Data:</strong> Em exibição</p>
+    <p><strong>Horários:</strong> 20h</p>
+  </div>
+</li>
+
+    
+  </section>
+</main>
+
+<!-- Modal -->
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <img id="poster" src="" alt="Poster do Filme">
+    <div class="detalhes">
+      <h3 id="titulo"></h3>
+      <p id="detalhes"></p>
+
+      <!-- Container do trailer -->
+      <div id="trailer-container" style="display:none; margin-top:15px;">
+        <iframe id="trailer-frame" width="100%" height="315"
+          src="" frameborder="0" allowfullscreen>
+        </iframe>
+      </div>
+
+      <!-- Botões -->
+      <p>
+        <button id="btn-trailer" class="btn-trailer">🎬 Ver Trailer</button>
+        <button id="btn-voltar" class="btn-voltar">⬅️ Voltar</button>
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<!-- JavaScript embutido -->
+<script>
+
+const menuToggle = document.querySelector('.menu-toggle');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  menuToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('active');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu.classList.remove('active');
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (mobileMenu.classList.contains('active') &&
+        !mobileMenu.contains(e.target) &&
+        e.target !== menuToggle) {
+      mobileMenu.classList.remove('active');
+    }
+  });
+  
+const filmesDetalhes = {
+  insideout:{
+    poster:"imagens/insideout.jpg",
+    titulo:"Divertida Mente",
+    detalhes:"Na mente da jovem Riley, as emoções Alegria, Tristeza, Raiva, Medo e Nojinho disputam o controle enquanto ela enfrenta mudanças importantes na vida, como a mudança de cidade e escola. Essa jornada mostra como cada emoção tem um papel essencial na construção da personalidade e nas relações | Animação | Livre | 1h35 | Datas: 27-1 Abril | Horário: 13h",
+    trailer:"https://www.youtube.com/watch?v=w2YRoV--CHo"
+  },
+
+  spidermannwh:{
+    poster:"imagens/spiderman-nwh.jpg",
+    titulo:"Homem-Aranha: Sem Volta Para Casa",
+    detalhes:"Após sua identidade ser revelada ao mundo, Peter Parker pede ajuda ao Doutor Estranho para que todos esqueçam que ele é o Homem-Aranha. Mas o feitiço dá errado e abre as portas do multiverso, trazendo vilões de outras realidades. Agora, Peter precisa enfrentar desafios que vão mudar sua vida para sempre | Ação / Aventura / Fantasia | +12 | 2h28 | Datas: 2-7 Abril | Horário: 15h",
+    trailer:"https://www.youtube.com/watch?v=CyiiEJRZjSU"
+  },
+
+  havoc:{
+    poster:"imagens/havoc.jpg",
+    titulo:"Havoc",
+    detalhes:"Um detetive veterano se vê preso em uma rede de corrupção e violência após uma negociação de drogas dar errado. Para salvar seu filho e expor a verdade, ele precisa atravessar um submundo brutal e enfrentar inimigos poderosos | Ação / Suspense | +16 | 2h05 | Datas: 22-26 Abril | Horário: 17h",
+    trailer:"https://www.youtube.com/watch?v=nuAmSRp9QR0"
+  },
+
+  sinners:{
+    poster:"imagens/sinners.jpg",
+    titulo:"Pecadores",
+    detalhes:"Dois irmãos retornam à cidade natal tentando reconstruir suas vidas, mas uma força maligna começa a persegui-los, trazendo à tona medos e traumas antigos. Misturando terror psicológico, fantasia sombria e ação intensa, o filme explora temas de culpa, redenção e enfrentamento dos próprios demônios | Terror / Fantasia / Ação | +16 | 2h17 | Datas: 17-21 Abril | Horário: 20h",
+    trailer:"https://www.youtube.com/watch?v=iCgB8k7ftx4"
+  }
+}
+function converterLinkYoutube(link) {
+  if (!link) return "";
+  if (link.includes("embed/")) return link;
+  const videoId = link.split("v=")[1]?.split("&")[0];
+  return `https://www.youtube.com/embed/${videoId}?autoplay=1`;
+}
+
+const modal = document.getElementById("modal");
+const poster = document.getElementById("poster");
+const titulo = document.getElementById("titulo");
+const detalhes = document.getElementById("detalhes");
+const btnTrailer = document.getElementById("btn-trailer");
+const btnVoltar = document.getElementById("btn-voltar");
+const trailerContainer = document.getElementById("trailer-container");
+const trailerFrame = document.getElementById("trailer-frame");
+const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".filme").forEach(item => {
+  item.addEventListener("click", () => {
+    const filmeId = item.dataset.filme;
+    const filme = filmesDetalhes[filmeId];
+    poster.src = filme.poster;
+    titulo.textContent = filme.titulo;
+    detalhes.textContent = filme.detalhes;
+
+    btnTrailer.onclick = () => {
+      trailerFrame.src = converterLinkYoutube(filme.trailer);
+      trailerContainer.style.display = "block";
+    };
+
+    modal.style.display = "flex";
+  });
+});
+
+// Botão Voltar fecha modal inteiro
+btnVoltar.onclick = () => {
+  modal.style.display = "none";
+  trailerFrame.src = "";
+  trailerContainer.style.display = "none";
+};
+
+// Botão X fecha modal inteiro
+closeBtn.addEventListener("click", () => {
+  modal.style.display = "none";
+  trailerFrame.src = "";
+  trailerContainer.style.display = "none";
+});
+
+// Clique fora fecha modal
+window.addEventListener("click", (event) => {
+  if (event.target === modal) {
+    modal.style.display = "none";
+    trailerFrame.src = "";
+    trailerContainer.style.display = "none";
+  }
+});
+
+
+
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programação de Filmes | Camama Tropical</title>
+  <link rel="stylesheet" href="mestre.css">
+  <link rel="icon" type="image/jpg" href="imagens/logo.jpg">
+</head>
+<body>
+
+<!-- Navbar Pilot -->
+<nav class="navbar">
+  <div class="logo">
+    <a href="index.html">
+      <img src="imagens/logo.jpg" alt="Logo Camama Tropical">
+    </a>
+  </div>
+  <button class="menu-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+
+  <!-- Menu mobile -->
+  <ul class="mobile-menu">
+    <li><a href="filme.html">Filmes</a></li>
+    <li><a href="teatro.html">Teatro</a></li>
+    <li><a href="stand.html">Show de Humor</a></li>
+    <li><a href="eventos.html">Eventos</a></li>
+    <li><a href="contactos.html">Contactos</a></li>
+    <li>
+      <a href="https://www.instagram.com/camama.tropical?utm_source=qr" target="_blank">
+        <img src="imagens/instagram-logo.jpg" alt="Instagram"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        camama.tropical
+      </a>
+    </li>
+    <li>
+      <a href="https://wa.me/244976194731" target="_blank">
+        <img src="imagens/whatsapp-logo.jpg" alt="WhatsApp"
+             style="height:20px;vertical-align:middle;margin-right:6px;">
+        Posso ajudar?
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<main>
+  <section id="programacao">
+   
+        <ul class="grid-filmes">
+  <!-- Sessões 13h e 15h (Infantil) -->
+  
+  <li class="filme" data-filme="insideout">
+  <img src="imagens/insideout.jpg" alt="Divertida Mente">
+  <div class="info">
+    <h3>Divertida Mente</h3>
+    <p><strong>Original:</strong> Inside Out</p>
+    <p><strong>Gênero:</strong> Animação</p>
+    <p><strong>Classificação:</strong> Livre</p>
+    <p><strong>Duração:</strong> 1h35</p>
     <p><strong>Datas:</strong> 27, 28, 29, 30, 31 Março, 1 Abril</p>
     <p><strong>Horários:</strong> 13h</p>
   </div>
